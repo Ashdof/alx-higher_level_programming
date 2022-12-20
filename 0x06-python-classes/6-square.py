@@ -82,8 +82,8 @@ class Square:
                 or not all(isinstance(i, int) for i in value)
                 or not all(i >= 0 for i in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
-        else:
-            self.__position = value
+
+        self.__position = value
 
     def my_print(self):
         """Print the square value and position of the object
