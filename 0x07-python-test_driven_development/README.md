@@ -19,8 +19,8 @@ The [doctest](https://docs.python.org/3/library/doctest.html) module searches fo
 This module supports test automation, sharing of setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from the reporting framework.
 
 ## Reference Resources
-[Wikipedia](https://en.wikipedia.org/wiki/Unit_testing)
-[Mattermost](https://mattermost.com/blog/testing-python-understanding-doctest-and-unittest/)
-[Python Doctest Documentation](https://docs.python.org/3/library/doctest.html)
-[Python Unit Test Documentation](https://docs.python.org/3/library/unittest.html)
-[Python Tutorial: Unit Testing Your Code with the unittest Module](https://www.youtube.com/watch?v=6tNS--WetLI)
+- [Wikipedia](https://en.wikipedia.org/wiki/Unit_testing)
+- [Mattermost](https://mattermost.com/blog/testing-python-understanding-doctest-and-unittest/)
+- [Python Doctest Documentation](https://docs.python.org/3/library/doctest.html)
+- [Python Unit Test Documentation](https://docs.python.org/3/library/unittest.html)
+- [Python Tutorial: Unit Testing Your Code with the unittest Module](https://www.youtube.com/watch?v=6tNS--WetLI)
