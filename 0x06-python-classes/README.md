@@ -17,7 +17,7 @@ Python documentation strings (or docstrings) provide a convenient way of associa
 - The following lines should be one or more paragraphs describing the object’s calling conventions, its side effects, etc.
 
 ### Declaring Docstrings
-The docstrings are declared using ”’triple single quotes”’ or “””triple double quotes””” just below the class, method or function declaration. All functions should have a docstring.
+The docstrings are declared using `'''triple single quotes'''` or `"""triple double quotes"""` just below the class, method or function declaration. All functions should have a docstring.
 
 ### Accessing Docstrings
 The docstrings can be accessed using the ` __doc__ ` method of the object or using the help function
