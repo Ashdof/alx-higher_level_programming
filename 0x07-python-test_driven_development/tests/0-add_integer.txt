@@ -1,0 +1,141 @@
+The ``0-add_integer`` module
+============================
+
+Using the ``add_integer``
+-------------------------
+
+Importing function from module
+>>> add_integer = __import__("0-add_integer").add_integer
+
+Adding 5 and 4
+>>> add_integer(5, 4)
+9
+
+Adding -5 and 4
+>>> add_integer(-5, 4)
+-1
+
+Adding -5 and -4
+>>> add_integer(-5, -4)
+-9
+
+Adding 0 and 4
+>>> add_integer(0, 4)
+4
+
+Adding 5 and 0
+>>> add_integer(5, 0)
+5
+
+Adding a string number and an integer
+>>> add_integer('5', 4)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+Adding a string and an integer
+>>> add_integer("School", 4)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+Adding an integer and a string
+>>> add_integer(5, "best")
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+Passing two strings
+>>> add_integer("Hello,", "World!")
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+Passing a single positive value
+>>> add_integer(4)
+102
+
+Passing a single negative value
+>>> add_integer(-5)
+93
+
+Adding an integer and a float
+>>> add_integer(5, 2.5)
+7
+
+Passing two floats
+>>> add_integer(5.5, 4.4)
+9
+
+Passing None to function
+>>> add_integer(None)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+Passing two string numbers
+>>> add_integer('5', '4')
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+Invoke function without parameter
+>>> add_integer()
+Traceback (most recent call last):
+  ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Passing a tuple to function
+>>> add_integer((5, 4))
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+Passing a list to function
+>>> add_integer([5, 4])
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+Passing a dictionary to function
+>>> add_integer({5, 4})
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+Passing a empty list as a parameter
+>>> add_integer(5, [])
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+Passing an empty dictionary as a parameter
+>>> add_integer({}, 4)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+>>> add_integer(float('best'), 4)
+Traceback (most recent call last):
+  ...
+ValueError: could not convert string to float: 'best'
+
+Overflow Cases:
+
+Case 1:
+>>> add_integer(int("best"), 4)
+Traceback (most recent call last):
+  ...
+ValueError: invalid literal for int() with base 10: 'best'
+
+Case 2:
+>>> add_integer(float('inf'), float('-inf'))
+Traceback (most recent call last):
+  ...
+OverflowError: cannot convert float infinity to integer
+
+Case 3:
+>>> add_integer(5, float('nan'))
+Traceback (most recent call last):
+  ...
+ValueError: cannot convert float NaN to integer
