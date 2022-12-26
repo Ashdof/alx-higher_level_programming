@@ -1,0 +1,103 @@
+The ``4-print_square`` module
+============================
+
+Using the ``print_square`` function
+---------------------------------------
+
+Importing function from module
+>>> print_square = __import__("4-print_square").print_square
+
+
+Case 1: Passing Valid Inputs
+-------------------------------
+
+Passing a positive value: 4
+>>> print_square(4)
+####
+####
+####
+####
+
+Passing zero(0)
+>>> print_square(0)
+
+
+
+Case 2: Passing Invalid inputs
+-------------------------------------
+
+Passing a negative value: -3
+>>> print_square(-3)
+Traceback (most recent call last):
+  ...
+ValueError: size must be >= 0
+
+Passing a float
+>>> print_square(3.5)
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+Passing a string integer
+>>> print_square('4')
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+Passing a string of characters
+>>> print_square('best')
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+Passing a cast of nan
+>>> print_square(int('nan'))
+Traceback (most recent call last):
+  ...
+ValueError: invalid literal for int() with base 10: 'nan'
+
+Passing nan without a cast
+>>> print_square(nan)
+Traceback (most recent call last):
+  ...
+NameError: name 'nan' is not defined
+
+Passing None
+>>> print_square(None)
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+Passing a cast of Infinity
+>>> print_square(int('inf'))
+Traceback (most recent call last):
+  ...
+ValueError: invalid literal for int() with base 10: 'inf'
+
+Passing a float cast of Infinity
+>>> print_square(float('inf'))
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+Invoke function without any arguments
+>>> print_square()
+Traceback (most recent call last):
+  ...
+TypeError: print_square() missing 1 required positional argument: 'size'
+
+
+Case 3: Passing Collections
+--------------------------------
+
+Passing a list of integers
+>>> print_square([1, 2, 3])
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
+
+Passing an empty dictionary
+>>> print_square({})
+Traceback (most recent call last):
+  ...
+TypeError: size must be an integer
