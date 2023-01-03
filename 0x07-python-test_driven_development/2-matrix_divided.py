@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A matrix definition function"""
 
+
 def matrix_divided(matrix, div):
     """Matrix division
 
@@ -29,7 +30,7 @@ def matrix_divided(matrix, div):
 
     if not matrix or not isinstance(matrix, list):
         raise TypeError(type_msg)
-    
+
     size = 0
     for row in matrix:
         if size != 0 and len(row) != size:
@@ -44,5 +45,5 @@ def matrix_divided(matrix, div):
             if type(item) not in (int, float):
                 raise TypeError(type_msg)
 
-    ans = list(map(lambda x: list(map(lambda y: round(y / div, 2), x)), matrix))
+    ans = list(map(lambda x: list(map(lambda y: round(y/div, 2), x)), matrix))
     return ans
