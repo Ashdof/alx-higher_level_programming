@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module with a function that prints square using the # sign"""
 
+
 def print_square(size):
     """Print square with a character
 
@@ -11,7 +12,7 @@ def print_square(size):
     Args:
         size (int): the argument
 
-    Returns: 
+    Returns:
         Nothing
     """
     if not isinstance(size, int):
