@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module with a function that multiplies two matrices"""
 
+
 def matrix_mul(m_a, m_b):
     """Multiply two matrices
 
@@ -37,11 +38,11 @@ def matrix_mul(m_a, m_b):
 
         if type(row_a) not in (list, ):
             raise TypeError("m_a must be a list of lists")
-        
+
         for item in row_a:
             if type(item) not in (int, float):
                 raise TypeError("m_a should contain only integers or floats")
-    
+
     for row_b in m_b:
         if size_b != 0 and len(row_b) != size_b:
             raise TypeError("each row of m_b must be of the same size")
@@ -50,11 +51,11 @@ def matrix_mul(m_a, m_b):
 
         if type(row_b) not in (list, ):
             raise TypeError("m_b must be a list of lists")
-        
+
         for item in row_b:
             if type(item) not in (int, float):
                 raise TypeError("m_b should contain only integers or floats")
-    
+
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
 

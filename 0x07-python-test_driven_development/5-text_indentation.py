@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module with a function that implements indentiation in strings"""
 
+
 def text_indentation(text):
     """Indent texts
 

@@ -1,6 +1,7 @@
 import unittest
 max_int = __import__("6-max_integer").max_integer
 
+
 class TestMaxInteger(unittest.TestCase):
 
     """Test case for the max-integer functio """
