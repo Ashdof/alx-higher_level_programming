@@ -119,8 +119,12 @@ class Rectangle:
 
         """
 
-        if self.__width == 0 or self.__height == 0:
-            return ""
+        ans = ""
 
-        return ("\n".join(["".join(["#" for i in range(self.__width)])
-                for j in range(self.__height)]))
+        if self.__width == 0 or self.__height == 0:
+            ans = ""
+
+        ans = ("\n".join(["".join(["#" for i in range(self.__width)])
+               for j in range(self.__height)]))
+
+        return ans
