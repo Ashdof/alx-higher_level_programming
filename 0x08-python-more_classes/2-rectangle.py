@@ -105,7 +105,12 @@ class Rectangle:
             The perimeter of the rectangle
         """
 
-        if self.__width == 0 or self.__height == 0:
-            return 0
+        ans = 0
 
-        return (2 * self.__width) + (2 * self.__height)
+        if self.__width == 0 or self.__height == 0:
+            ans = 0
+
+        else:
+            ans = (2 * self.__width) + (2 * self.__height)
+
+        return ans
