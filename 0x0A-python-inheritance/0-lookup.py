@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Define an object lookup function"""
+
 
 def lookup(obj):
     """Lookup attributes
