@@ -1,0 +1,136 @@
+The ``1-my_list`` module
+============================
+
+Using the ``print_sorted`` function
+---------------------------------------
+
+Importing function from module
+>>> MyList = __import__("1-my_list").MyList
+>>> my_list = MyList()
+
+Case 1: Passing Positive Integer Values
+----------------------------------------
+
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+
+Printing results
+----------------
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+
+Case 2: Passing float values
+----------------------------
+
+>>> my_list = MyList()
+>>> my_list.append(0.5)
+>>> my_list.append(2.5)
+>>> my_list.append(0.05)
+>>> my_list.append(562.845)
+
+Printing results
+----------------
+
+>>> my_list.print_sorted()
+[0.05, 0.5, 2.5, 562.845]
+
+
+Case 3: Passing Negative Integer Values
+---------------------------------------
+
+>>> my_list = MyList()
+>>> my_list.append(-7)
+>>> my_list.append(-15)
+>>> my_list.append(-1)
+>>> my_list.append(-19)
+
+Print results
+-------------
+>>> my_list.print_sorted()
+[-19, -15, -7, -1]
+
+
+Case 4: Passing a Mixture of Positive and Negative Intergers and Floats
+-----------------------------------------------------------------------
+
+>>> my_list = MyList()
+
+>>> my_list.append(-7)
+>>> my_list.append(0.1)
+>>> my_list.append(-0.009)
+>>> my_list.append(0.009)
+>>> my_list.append(3)
+>>> my_list.append(1.99)
+
+Print results
+-------------
+[-7, -0.009, 0.009, 0.1, 1.99, 3]
+
+
+Case 4: Passing String Numbers
+------------------------------
+ 
+>>> my_list = MyList()
+
+>>> my_list.append("-7")
+>>> my_list.append("0.1")
+>>> my_list.append(-0.009)
+>>> my_list.append(0.009)
+
+Print results
+-------------
+['-7', '0.1', -0.009, 0.009]
+Traceback (most recent call last):
+ ... 
+TypeError: '<' not supported between instances of 'float' and 'str'
+
+
+Case 5: Passing String Characters
+---------------------------------
+
+>>> my_list = MyList()
+
+>>> my_list.append("best")
+>>> my_list.append("school")
+>>> my_list.append(" ")
+>>> my_list.append("")
+
+Print results
+-------------
+['', ' ', 'best', 'school']
+
+
+Case 6: Check for Docstrings
+----------------------------
+
+Check for module docstring:
+--------------------------
+>>> my_list = __import__("1-my_list").__doc__
+>>> len(my_list) > 1
+True
+
+Check for class docstring:
+--------------------------
+>>> my_list = __import__("1-my_list").MyList.__doc__
+>>> len(my_list) > 1
+True
+
+Check for method docstring:
+-----------------------------
+>>> my_list = __import__("1-my_list").MyList.print_sorted.__doc__
+>>> len(my_list) > 1
+True
+
+Check if MyList inherits from list:
+----------------------------------------
+>>> issubclass(MyList, list)
+True
+
+Check for empty list:
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
