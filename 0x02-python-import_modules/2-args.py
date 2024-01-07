@@ -1,20 +1,20 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
+    """
+    A program that prints number of and lists of arguments
+    """
     import sys
 
     args = sys.argv
-    n = len(args)
+    n = len(args) - 1
 
-    if n < 2:
+    if n == 0:
         print("{:d} arguments".format(0))
-    elif n == 2:
-        n -= 1
+    elif n == 1:
         print("{:d} argument".format(n))
-        print("{:d}: {}".format(n, args[n]))
     else:
-        n -= 1
         print("{:d} arguments".format(n))
 
-        for i in range(1, n + 1):
-            print("{:d}: {}".format((i), args[i]))
+    for i in range(n):
+        print("{:d}: {}".format(i + 1, args[i + 1]))
