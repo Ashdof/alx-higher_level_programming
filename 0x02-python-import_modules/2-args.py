@@ -10,11 +10,11 @@ if __name__ == "__main__":
     n = len(args) - 1
 
     if n == 0:
-        print("{:d} arguments".format(0))
+        print("{:d} arguments.".format(0))
     elif n == 1:
-        print("{:d} argument".format(n))
+        print("{:d} argument:".format(n))
     else:
-        print("{:d} arguments".format(n))
+        print("{:d} arguments:".format(n))
 
     for i in range(n):
         print("{:d}: {}".format(i + 1, args[i + 1]))
