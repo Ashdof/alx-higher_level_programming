@@ -6,6 +6,7 @@ if __name__ == "__main__":
     import hidden_4
 
     vals = dir(hidden_4)
+
     for val in vals:
         if val[:2] != '__':
-            print(val)
+            print("{}".format(val))
