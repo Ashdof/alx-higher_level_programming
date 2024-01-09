@@ -10,4 +10,4 @@ if __name__ == "__main__":
 
     for i in range(n):
         ans += int(args[i + 1])
-    print("{}".format(ans))
+    print("{:d}".format(ans))
