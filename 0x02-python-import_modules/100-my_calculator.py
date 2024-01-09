@@ -1,31 +1,31 @@
 #!/usr/bin/python3
-from calculator_1 import add, sub, mul, div
 
+if __name__ == "__main__":
+    from calculator_1 import add, sub, mul, div
+    from sys import argv, exit
 
-def compute_args(args):
-    n = len(args) - 1
-
+    n = len(argv) - 1
+    ops = ["+", "*", "-", "/"]
     if n != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
-
-    a = int(args[1])
-    op = args[2]
-    b = int(args[3])
-
-    if op == '+':
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, add(a, b)))
-    elif op == '-':
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, sub(a, b)))
-    elif op == '*':
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, mul(a, b)))
-    elif op == '/':
-        print("{:d} {:s} {:d} = {:d}".format(a, op, b, div(a, b)))
-    else:
+    elif argv[2] not in ops:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
 
+    a = int(argv[1])
+    op = argv[2]
+    b = int(argv[3])
 
-if __name__ == "__main__":
-    import sys
-    compute_args(sys.argv)
+    if op == '+':
+        ans = add(a, b)
+        print("{:d} {:s} {:d} = {:d}".format(a, op, b, ans))
+    elif op == '-':
+        ans = sub(a, b)
+        print("{:d} {:s} {:d} = {:d}".format(a, op, b, ans))
+    elif op == '*':
+        ans = mul(a, b)
+        print("{:d} {:s} {:d} = {:d}".format(a, op, b, ans))
+    elif op == '/':
+        ans = div(a, b)
+        print("{:d} {:s} {:d} = {:d}".format(a, op, b, ans))
