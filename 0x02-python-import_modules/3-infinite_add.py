@@ -5,9 +5,7 @@ if __name__ == "__main__":
     import sys
 
     ans = 0
-    args = sys.argv
-    n = len(args) - 1
 
-    for i in range(n):
-        ans += int(args[i + 1])
+    for i in range(len(sys.argv) - 1):
+        ans += int(sys.argv[i + 1])
     print("{:d}".format(ans))
