@@ -1,0 +1,5 @@
+#!/bin/bash
+m=$1
+n=$2
+pycodestyle $m
+python3 $2
