@@ -1,0 +1,184 @@
+The ``2-matrix_divided`` module
+============================
+
+Using the ``2-matrix_divided`` function
+---------------------------------------
+
+Importing function from module
+>>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+
+Case 1: Passing Right Arguments
+-------------------------------
+
+Passing all floats
+>>> matrix = [[0.1, 2.9, 3.33333333], [4.1, 0.03040506070905, 6.765]]
+>>> val = 3.003
+>>> matrix_divided(matrix, val)
+[[0.03, 0.97, 1.11], [1.37, 0.01, 2.25]]
+
+Passing all integers
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Passing a float as divisor
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = 3.003
+>>> matrix_divided(matrix, val)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Passing a matrix of floats
+>>> matrix = [[0.1, 2.202, 3.123], [4.07, 5.11, 6.01]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+[[0.03, 0.73, 1.04], [1.36, 1.7, 2.0]]
+
+
+Case 2: Passing Strings
+-----------------------
+
+Passing a matrix with a string integer
+>>> matrix = [[1, 2, 3], [4, '5', 6]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Passing a string of characters
+>>> matrix = [[1, 2, "best"], [4, 5, 6]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Dividing with a string integer
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = '3'
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: div must be a number
+
+Dividing with a string of characters
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = "school"
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: div must be a number
+
+
+Case 3: Unequal length of matrix
+--------------------------------
+
+Passing a matrix of unequal length
+>>> matrix = [[1, 2], [4, 5, 6]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: Each row of the matrix must have the same size
+
+Dividing with zero(0)
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = 0
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+ZeroDivisionError: division by zero
+
+
+Case 4: Passing different types
+-------------------------------
+
+Passing a dictionary as part of the matrix
+>>> matrix = [{1, 2, 3}, [4, 5, 6]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Passing a dictionary inside a list
+>>> matrix = [[{1, 2, 3}], [4, 5, 6]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Dividing by a list
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = [3, 2]
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: div must be a number
+
+Dividing with a nan
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = 'nan'
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: div must be a number
+
+Passing a positive cast infinity
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = float('inf')
+>>> matrix_divided(matrix, val)
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Passing a negative cast infinity
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = float('-inf')
+>>> matrix_divided(matrix, val)
+[[-0.0, -0.0, -0.0], [-0.0, -0.0, -0.0]]
+
+Passing a cast positive nan to function
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = float('nan')
+>>> matrix_divided(matrix, val)
+[[nan, nan, nan], [nan, nan, nan]]
+
+Passing a cast negative nan
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = float('-nan')
+>>> matrix_divided(matrix, val)
+[[nan, nan, nan], [nan, nan, nan]]
+
+Passing a matrix with a 'nan' as element
+>>> matrix = [[1, 2, 'nan'], [4, 5, 6]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ... 
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Passing None to function
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+>>> val = None
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ...
+TypeError: div must be a number
+
+Passing a matrix with a None as element
+>>> matrix = [[None, 2, 3], [4, 5, 6]]
+>>> val = 3
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Passing an empty list
+>>> matrix = []
+>>> val = 3
+>>> matrix_divided(matrix, val)
+Traceback (most recent call last):
+   ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats

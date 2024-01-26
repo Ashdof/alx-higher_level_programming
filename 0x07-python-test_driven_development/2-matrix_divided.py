@@ -28,7 +28,7 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError(err_zero)
 
     if not matrix or not isinstance(matrix, list):
-        raise typeError(err_type)
+        raise TypeError(err_type)
 
     for row in matrix:
         if size != 0 and len(row) != size:
