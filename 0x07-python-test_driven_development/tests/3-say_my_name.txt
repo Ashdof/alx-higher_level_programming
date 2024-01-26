@@ -1,0 +1,96 @@
+The ``3-say_my_name`` module
+============================
+
+Using the ``say_my_name`` function
+---------------------------------------
+
+Importing function from module
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+
+Case 1: Passing Right Arguments
+-------------------------------
+
+Passing two string args
+>>> say_my_name("Jay", "Kay")
+My name is Jay Kay
+
+Passing one string args
+>>> say_my_name("Joe")
+My name is Joe 
+
+
+Case 2: Invalid inputs
+-------------------------------------
+
+Invoking function without args
+>>> say_my_name()
+Traceback (most recent call last):
+      ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Passing empty string to function
+>>> say_my_name("")
+My name is  
+
+Passing blank to function
+>>> say_my_name(" ")
+My name is   
+
+Passing None
+>>> say_my_name(None)
+Traceback (most recent call last):
+       ...
+TypeError: first_name must be a string
+
+Passing 'nan'
+>>> say_my_name('nan')
+My name is nan 
+
+Passing nan
+>>> say_my_name(nan)
+Traceback (most recent call last):
+       ...
+NameError: name 'nan' is not defined
+
+Passing a number
+>>> say_my_name(23, "Kwesi")
+Traceback (most recent call last):
+       ...
+TypeError: first_name must be a string
+
+Passing an integer string
+>>> say_my_name("23", "Jay")
+My name is 23 Jay
+
+Passing float as second args
+>>> say_my_name("Jay", 23.32)
+Traceback (most recent call last):
+       ...
+TypeError: last_name must be a string
+
+Passing a float string as second args
+>>> say_my_name("Jay", "23.32")
+My name is Jay 23.32
+
+
+Case 3: Passing Collections
+--------------------------------
+
+Passing a set of strings
+>>> say_my_name(("Jay", "Kay"), ("May", "Hay"))
+Traceback (most recent call last):
+       ...
+TypeError: first_name must be a string
+
+Passing empty set
+>>> say_my_name((), "Jay")
+Traceback (most recent call last):
+       ...
+TypeError: first_name must be a string
+
+Passing a dictionary
+>>> say_my_name({"Abi": 23, "Jay": 28, "Hay": 19}, "May")
+Traceback (most recent call last):
+       ...
+TypeError: first_name must be a string
