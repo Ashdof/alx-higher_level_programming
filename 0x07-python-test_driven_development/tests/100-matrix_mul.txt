@@ -1,0 +1,139 @@
+The ``100-matrix_mul`` module
+============================
+
+Using the ``matrix_mul`` function
+---------------------------------------
+
+Importing function from module
+>>> matrix_mul = __import__("100-matrix_mul").matrix_mul
+
+
+Case 1: Passing Valid Inputs
+-------------------------------
+
+Passing positive integers
+>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+[[7, 10], [15, 22]]
+
+Passing negative values
+>>> matrix_mul([[1, -2], [-3, -4]], [[-1, 2], [-3, -4]])
+[[5, 10], [15, 10]]
+
+Passing floats
+>>> matrix_mul([[1, 2.82], [3.33, 4]], [[1.5, 2], [3, 4.2]])
+[[9.959999999999999, 13.844], [16.995, 23.46]]
+
+Passing zeros
+>>> matrix_mul([[0, 0], [0, 0]], [[0, 0], [0, 0]])
+[[0, 0], [0, 0]]
+
+
+Case 2: Passing Invalid Values
+------------------------------
+
+Part 1: Passing strings
+----------------------
+
+Passing string integers
+>>> matrix_mul([['1', 2], ['3', 4]], [['1', '2'], ['3', 4]])
+Traceback (most recent call last):
+  ...
+TypeError: m_a should contain only integers or floats
+
+Passing string characters
+>>> matrix_mul([[1, 2], [3, 4]], [[1, "best"], ['school', 4]])
+Traceback (most recent call last):
+  ...
+TypeError: m_b should contain only integers or floats
+
+Passing empty characters
+>>> matrix_mul([[1, 2], [3, 4]], [['', 2], ["", 4]])
+Traceback (most recent call last):
+  ...
+TypeError: m_b should contain only integers or floats
+
+Passing blanks
+>>> matrix_mul([[1, 2], [3, ' ']], [[1, 2], [" ", 4]])
+Traceback (most recent call last):
+  ...
+TypeError: m_a should contain only integers or floats
+
+
+Part 2: Passing Incomplete Values and Other Types
+-------------------------------------------------
+
+Passing empty list 1
+>>> matrix_mul([[]], [])
+Traceback (most recent call last):
+  ...
+ValueError: m_a can't be empty
+
+Passing empty list 2
+>>> matrix_mul([][])
+Traceback (most recent call last):
+  ...
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+Passing an empty list for first args
+>>> matrix_mul([[]], [[1, 2, 3], [4, 5, 6]])
+Traceback (most recent call last):
+  ...
+ValueError: m_a can't be empty
+
+Passing an empty list for second args
+>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[], []])
+Traceback (most recent call last):
+  ...
+ValueError: m_a and m_b can't be multiplied
+
+Passing unequal length in first args
+>>> matrix_mul([[1, 2], [3]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+  ...
+TypeError: each row of m_a must be of the same size
+
+Passing unequal length in second args
+>>> matrix_mul([[1, 2], [3, 5]], [[2], [3, 4]])
+Traceback (most recent call last):
+  ...
+TypeError: each row of m_b must be of the same size
+
+Passing lists without commas Part 1
+>>> matrix_mul([[1, 2] [3, 5]], [[1, 2] [3, 4]])
+Traceback (most recent call last):
+  ...
+TypeError: list indices must be integers or slices, not tuple
+
+Passing lists without commas Part 2
+>>> matrix_mul([[1 2], [3 5]], [[1, 2], [3, 4]])
+Traceback (most recent call last):
+    ...
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+Invoking function with empty args
+>>> matrix_mul()
+Traceback (most recent call last):
+    ...
+TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+Passing two matrices that cannot be multiplied
+>>> matrix_mul([[5, 2, 3], [7, 13, 2], [1, 0, 3]], [[2, 3], [6, 9]])
+Traceback (most recent call last):
+    ...
+ValueError: m_a and m_b can't be multiplied
+
+Passing only one argument
+>>> matrix_mul([[1, 2]])
+Traceback (most recent call last):
+    ...
+TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+
+
+Part 2: Passing Different Types
+-------------------------------
+
+Passing None to both args
+>>> matrix_mul([None], [None])
+Traceback (most recent call last):
+  ...
+TypeError: object of type 'NoneType' has no len()
