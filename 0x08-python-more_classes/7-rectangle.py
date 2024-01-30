@@ -98,8 +98,8 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             ans = ""
         else:
-            ans = ("\n".join(["".join([str(self.print_symbol) for i in range(self.__width)])
-                   for j in range(self.__height)]))
+            ans = ("\n".join(["".join([str(self.print_symbol) for i in
+                   range(self.__width)]) for j in range(self.__height)]))
 
         return ans
 
