@@ -24,6 +24,8 @@ class Student:
         """Retrieve a dictionary representation of Student object"""
 
         if isinstance(attrs, list) and all(isinstance(i, str) for i in attrs):
+
             return {m: getattr(self, m) for m in attrs if hasattr(self, m)}
         else:
+
             return self.__dict__

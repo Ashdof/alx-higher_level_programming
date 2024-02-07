@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""A module with a Student class"""
+"""A module with a class that defines a typical student"""
 
 import json
 
