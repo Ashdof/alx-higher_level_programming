@@ -14,6 +14,7 @@ from models.square import Square
     TestSquareUpdateArgs    --------------> line
     TestSquareUpdateKwargs  --------------> line
     TestSquareX             --------------> line
+    TestSquareArea          --------------> line
 """
 
 
@@ -484,3 +485,28 @@ class TestSquareX(unittest.TestCase):
         """Test case for passing a negative value"""
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Square(5, -1, 0)
+
+
+class TestSquareArea(unittest.TestCase):
+    """Unittest for the area method of the Square class"""
+
+    def test_area_small(self):
+        """Test case for accessing a small area"""
+        self.assertEqual(100, Square(10, 0, 0, 1).area())
+
+    def test_area_large(self):
+        """Test case for accessing a large area"""
+        square = Square(999999999999999999, 0, 0, 1)
+        self.assertEqual(999999999999999998000000000000000001, square.area())
+
+    def test_area_changed_attributes(self):
+        """Test case for a changed attribute"""
+        square = Square(2, 0, 0, 1)
+        square.size = 7
+        self.assertEqual(49, square.area())
+
+    def test_area_one_arg(self):
+        """Test case for passing one argument"""
+        square = Square(2, 10, 1, 1)
+        with self.assertRaises(TypeError):
+            square.area(1)
