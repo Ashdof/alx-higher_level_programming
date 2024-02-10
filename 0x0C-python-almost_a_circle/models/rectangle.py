@@ -202,10 +202,12 @@ class Rectangle(Base):
             the # character
         """
 
+        [print("") for y in range(self.y)]
         for i in range(self.height):
+            [print(" ", end="") for x in range(self.x)]
             for j in range(self.width):
                 print('#', end='')
-            print()
+            print("")
 
     def __str__(self):
         """Return a string representation of this rectangle object"""
