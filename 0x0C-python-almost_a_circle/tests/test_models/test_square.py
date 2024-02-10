@@ -13,6 +13,7 @@ from models.square import Square
     TestSquareSize          --------------> line
     TestSquareUpdateArgs    --------------> line
     TestSquareUpdateKwargs  --------------> line
+    TestSquareX             --------------> line
 """
 
 
@@ -394,3 +395,92 @@ class TestSquareUpdateKwargs(unittest.TestCase):
         square = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             square.update(y=-5)
+
+
+class TestSquareX(unittest.TestCase):
+    """Unittest for testing initialization of Square x attribute."""
+
+    def test_none_x(self):
+        """Test case for passing None to function"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, None)
+
+    def test_str_x(self):
+        """Test case for passing a string of characters to function"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, "best")
+
+    def test_float_x(self):
+        """Test case for passing a float value"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, 5.5)
+
+    def test_complex_x(self):
+        """Test case for passing a complex object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, complex(5))
+
+    def test_dict_x(self):
+        """Test case for passing a dictionary obejct"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, {"a": 1, "b": 2}, 2)
+
+    def test_bool_x(self):
+        """Test case for passing a boolean object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, True)
+
+    def test_list_x(self):
+        """Test case for passing a list object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, [1, 2, 3])
+
+    def test_set_x(self):
+        """Test case for passing a set object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, {1, 2, 3})
+
+    def test_tuple_x(self):
+        """Test case for passing a tuple object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, (1, 2, 3))
+
+    def test_frozenset_x(self):
+        """Test case for passing a frozenset object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, frozenset({1, 2, 3, 1}))
+
+    def test_range_x(self):
+        """Test case for passing a range object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, range(1, 5))
+
+    def test_bytes_x(self):
+        """Test case for passing a byte object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, b'school')
+
+    def test_bytearray_x(self):
+        """Test case for passing a bytearray object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, bytearray(b'uvwxyz'))
+
+    def test_memoryview_x(self):
+        """Test case for passing a memoryview object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, memoryview(b'uvwxyz'))
+
+    def test_inf_x(self):
+        """Test case for passing an infinit object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, float('inf'), 2)
+
+    def test_nan_x(self):
+        """Test case for passing a NaN object"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, float('nan'), 2)
+
+    def test_negative_x(self):
+        """Test case for passing a negative value"""
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Square(5, -1, 0)
