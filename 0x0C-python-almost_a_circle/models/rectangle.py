@@ -191,4 +191,18 @@ class Rectangle(Base):
             The computed area
         """
 
-        return self.__width * self.__height
+        return self.width * self.height
+
+    def display(self):
+        """
+        Display Object
+
+        Description:
+            This function displays a rectangle object using
+            the # character
+        """
+
+        for i in range(self.height):
+            for j in range(self.width):
+                print('#', end='')
+            print()
