@@ -16,6 +16,7 @@ from models.rectangle import Rectangle
     TestRectangleArea           -------------> line
     TestRectangleUpdateArgs     -------------> line
     TestRectangleUpdateKwargs   -------------> line
+    TestRectangleToDictionary   -------------> line
 """
 
 
@@ -777,3 +778,26 @@ class TestRectangleUpdateKwargs(unittest.TestCase):
         rec = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             rec.update(width=9, id=3, height=2, x=3, y=-6)
+
+
+class TestRectangleToDictionary(unittest.TestCase):
+    """Unittest for to_dictionary method of the Rectangle class"""
+
+    def test_to_dictionary_output(self):
+        """Test case for dictionary object output"""
+        rec = Rectangle(10, 2, 1, 9, 5)
+        res = {'x': 1, 'y': 9, 'id': 5, 'height': 2, 'width': 10}
+        self.assertDictEqual(res, rec.to_dictionary())
+
+    def test_to_dictionary_no_object_changes(self):
+        """Test case for no object output"""
+        rec_1 = Rectangle(10, 2, 1, 9, 5)
+        rec_2 = Rectangle(5, 9, 1, 2, 10)
+        rec_2.update(**rec_1.to_dictionary())
+        self.assertNotEqual(rec_1, rec_2)
+
+    def test_to_dictionary_arg(self):
+        """Test case for to_dictionary arg"""
+        rec = Rectangle(10, 2, 4, 1, 2)
+        with self.assertRaises(TypeError):
+            rec.to_dictionary(1)
