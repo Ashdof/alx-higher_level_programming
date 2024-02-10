@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ A Square Module"""
 
-from models.base import Base
 from models.rectangle import Rectangle
 
 
@@ -47,6 +46,49 @@ class Square(Rectangle):
 
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """
+        Update attributes
+
+        Description:
+            This function updates the attributes ofa square instance
+
+        Args:
+            args (int): a variable length of integer arguments
+            kwargs (collection): a collection of key/value objects
+            1st argument represents the id attribute
+            2nd argument represents the size attribute
+            3rd argument represents the x attribute
+            4th argument represents the y attribute
+        """
+
+        if args and len(args) != 0:
+            i = 0
+            for arg in args:
+                match i:
+                    case 0:
+                        self.id = arg
+                    case 1:
+                        self.width = arg
+                        self.height = arg
+                    case 2:
+                        self.x = arg
+                    case 3:
+                        self.y = arg
+                i += 1
+        else:
+            for key, vals in kwargs.items():
+                match key:
+                    case "id":
+                        self.id = vals
+                    case "size":
+                        self.width = vals
+                        self.height = vals
+                    case "x":
+                        self.x = vals
+                    case "y":
+                        self.y = vals
 
     def __str__(self):
         """Return a string representation of this square instance"""
