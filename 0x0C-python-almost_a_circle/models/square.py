@@ -20,8 +20,36 @@ class Square(Rectangle):
 
         super().__init__(width=size, height=size, x=x, y=x, id=id)
 
+    @property
+    def size(self):
+        """Return the size of this square instance"""
+
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """
+        Update size of square
+
+        Args:
+            value (int): the value to set the size
+
+        Raises:
+            TypeError for an invalid data type
+            ValueError for an invalid value: 0 or less
+        """
+
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+
+        if value <= 0:
+            raise ValueError("width must be > 0")
+
+        self.width = value
+        self.height = value
+
     def __str__(self):
         """Return a string representation of this square instance"""
 
         info = "[Square] ({}) {}/{} - {}"
-        return info.format(self.id, self.x, self.y, self.width)
+        return info.format(self.id, self.x, self.y, self.size)
