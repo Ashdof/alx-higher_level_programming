@@ -519,6 +519,7 @@ class TestRectangleHeight(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(8, None)
 
+<<<<<<< HEAD
     def test_str_height(self):
         """Test case for assigning string of charaters to height"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
@@ -776,3 +777,137 @@ class TestRectangleY(unittest.TestCase):
         """Test case for assigning a Nan object to coordinate y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(7, 8, 9, float('nan'))
+=======
+    def test_area_one_arg(self):
+        """Test case for an area with one argument"""
+        rec = Rectangle(2, 10, 1, 1, 1)
+        with self.assertRaises(TypeError):
+            rec.area(1)
+
+
+class TestRectangleUpdateArgs(unittest.TestCase):
+    """Unittest for update argument method of the Rectangle class"""
+
+    def test_update_args_zero(self):
+        """Test case for update method without any arguments"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update()
+        self.assertEqual(str(rec), "[Rectangle] (10) 10/10 - 10/10")
+
+    def test_update_args_one(self):
+        """Test case for update method with one argument"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(89)
+        self.assertEqual(str(rec), "[Rectangle] (89) 10/10 - 10/10")
+
+    def test_update_args_two(self):
+        """Test case for update method with two arguments"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(89, 3)
+        self.assertEqual(str(rec), "[Rectangle] (89) 10/10 - 3/10")
+
+    def test_update_args_three(self):
+        """Test case for update method with three arguments"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(89, 2, 3)
+        self.assertEqual(str(rec), "[Rectangle] (89) 10/10 - 2/3")
+
+    def test_update_args_four(self):
+        """Test case for update method with four arguments"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(89, 2, 3, 4)
+        self.assertEqual(str(rec), "[Rectangle] (89) 4/10 - 2/3")
+
+    def test_update_args_five(self):
+        """Test case for update method with five arguments"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(rec), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_update_args_more_than_five(self):
+        """Test case for update method with more than five arguments"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(89, 2, 3, 4, 5, 6)
+        self.assertEqual(str(rec), "[Rectangle] (89) 4/5 - 2/3")
+
+    def test_update_args_none_id(self):
+        """Test case for update method with None as argument"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(None)
+        res = f"[Rectangle] ({rec.id}) 10/10 - 10/10"
+        self.assertEqual(str(rec), res)
+
+    def test_update_args_none_id_and_more(self):
+        """Test case for update method with none and more arguments"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(None, 4, 5, 2)
+        res = f"[Rectangle] ({rec.id}) 2/10 - 4/5"
+        self.assertEqual(str(rec), res)
+
+    def test_update_args_twice(self):
+        """Test case for update method with double updating"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        rec.update(89, 2, 3, 4, 5, 6)
+        rec.update(9, 4, 3, 5, 3, 7)
+        self.assertEqual(str(rec), "[Rectangle] (9) 5/3 - 4/3")
+
+    def test_update_args_invalid_width_type(self):
+        """Test case for update method with an invalid argument"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            rec.update(98, "best")
+
+    def test_update_args_width_zero(self):
+        """Test case for update method with zero argument"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            rec.update(89, 0)
+
+    def test_update_args_width_negative(self):
+        """Test case for update method with a negative argument"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            rec.update(89, -9)
+
+    def test_update_args_invalid_height_type(self):
+        """Test case for update method with an invalid height value"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            rec.update(89, 9, "best")
+
+    def test_update_args_height_zero(self):
+        """Test case for update method with a zero height value"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            rec.update(89, 9, 0)
+
+    def test_update_args_height_negative(self):
+        """Test case for update method with a negative height value"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            rec.update(89, 8, -9)
+
+    def test_update_args_invalid_x_type(self):
+        """Test case for update method with an invalid x value"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            rec.update(89, 8, 9, "school")
+
+    def test_update_args_x_negative(self):
+        """Test case for update method with a negative x value"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            rec.update(89, 7, 8, -9)
+
+    def test_update_args_invalid_y(self):
+        """Test case for update method with an invalid y value"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            rec.update(89, 7, 8, 9, "best")
+
+    def test_update_args_y_negative(self):
+        """Test case for update method with a negative y value"""
+        rec = Rectangle(10, 10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            rec.update(89, 1, 2, 3, -6)
+>>>>>>> 10afec5 (Added test cases for update function)
