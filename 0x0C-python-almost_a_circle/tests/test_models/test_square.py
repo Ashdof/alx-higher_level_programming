@@ -12,6 +12,7 @@ from models.square import Square
     TestSquareInstantiation --------------> line
     TestSquareSize          --------------> line
     TestSquareUpdateArgs    --------------> line
+    TestSquareUpdateKwargs  --------------> line
 """
 
 
@@ -290,3 +291,106 @@ class TestSquareUpdateArgs(unittest.TestCase):
         square = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             square.update(8, 18, 1, -9)
+
+
+class TestSquareUpdateKwargs(unittest.TestCase):
+    """Unittest for update kwargs method of Square class"""
+
+    def test_update_one_kwargs(self):
+        """Test case for passing one argument"""
+        square = Square(10, 10, 10, 10)
+        square.update(id=1)
+        self.assertEqual("[Square] (1) 10/10 - 10", str(square))
+
+    def test_update_two_kwargs(self):
+        """Test case for passing two arguments"""
+        square = Square(10, 10, 10, 10)
+        square.update(size=1, id=2)
+        self.assertEqual("[Square] (2) 10/10 - 1", str(square))
+
+    def test_update_three_kwargs(self):
+        """Test case for passing three arguments"""
+        square = Square(10, 10, 10, 10)
+        square.update(y=1, size=3, id=89)
+        self.assertEqual("[Square] (89) 10/1 - 3", str(square))
+
+    def test_update_four_kwargs(self):
+        """Test case for passing four arguments"""
+        square = Square(10, 10, 10, 10)
+        square.update(id=89, x=1, y=3, size=4)
+        self.assertEqual("[Square] (89) 1/3 - 4", str(square))
+
+    def test_update_set_width_kwargs(self):
+        """Test case to set width of square"""
+        square = Square(10, 10, 10, 10)
+        square.update(id=89, size=8)
+        self.assertEqual(8, square.width)
+
+    def test_update_set_height_kwargs(self):
+        """Test case to set height of square"""
+        square = Square(10, 10, 10, 10)
+        square.update(id=89, size=9)
+        self.assertEqual(9, square.height)
+
+    def test_update__none_id(self):
+        """Test case for passing None as id"""
+        square = Square(10, 10, 10, 10)
+        square.update(id=None)
+        res = f"[Square] ({square.id}) 10/10 - 10"
+        self.assertEqual(res, str(square))
+
+    def test_update_none_and_more_kwargs(self):
+        """Test case for passing None and other values"""
+        square = Square(10, 10, 10, 10)
+        square.update(id=None, size=7, x=18)
+        res = f"[Square] ({square.id}) 18/10 - 7"
+        self.assertEqual(res, str(square))
+
+    def test_update_twice_kwargs(self):
+        """Test case for double updating"""
+        square = Square(10, 10, 10, 10)
+        square.update(id=89, x=1)
+        square.update(y=3, x=15, size=2)
+        self.assertEqual("[Square] (89) 15/3 - 2", str(square))
+
+    def test_update_invalid_size_kwargs(self):
+        """Test case for passing an invalid value to size"""
+        square = Square(10, 10, 10, 10)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            square.update(size="best")
+
+    def test_update_size_zero_kwargs(self):
+        """Test case for passing a value of zero to size"""
+        square = Square(10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            square.update(size=0)
+
+    def test_update_size_negative_kwargs(self):
+        """Test case for passing a negative value to size"""
+        square = Square(10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            square.update(size=-9)
+
+    def test_update_invalid_x_kwargs(self):
+        """Test case for passing an invalid value to x coordinate"""
+        square = Square(10, 10, 10, 10)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            square.update(x="best")
+
+    def test_update_x_negative_kwargs(self):
+        """Test case for passing a negative value to x coordinate"""
+        square = Square(10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            square.update(x=-5)
+
+    def test_update_invalid_y_kwargs(self):
+        """Test case for passing an invalid value to y coordinate"""
+        square = Square(10, 10, 10, 10)
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            square.update(y="best")
+
+    def test_update_negative_y_kwargs(self):
+        """Test case for passing a negative value to y coordinate"""
+        square = Square(10, 10, 10, 10)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            square.update(y=-5)
