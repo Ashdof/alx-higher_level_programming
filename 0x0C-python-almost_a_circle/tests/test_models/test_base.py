@@ -13,6 +13,7 @@ from models.square import Square
     TestBaseToJsonString    ---------------> line
     TestBaseSaveToFile      ---------------> line
     TestBaseFromJsonString  ---------------> line
+    TestBaseCreate          ---------------> line
 """
 
 
@@ -261,3 +262,59 @@ class TestBaseFromJsonString(unittest.TestCase):
         """Test case for assigning more than one argument"""
         with self.assertRaises(TypeError):
             Base.from_json_string([], 1)
+
+
+class TestBaseCreate(unittest.TestCase):
+    """Unittest for create method of Base class"""
+
+    def test_create_rectangle_original(self):
+        """Test case for creating a rectangle object"""
+        rec_1 = Rectangle(3, 5, 1, 2, 7)
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(rec_1))
+
+    def test_create_rectangle_new(self):
+        """Test case for creating a rectangle"""
+        rec_1 = Rectangle(3, 5, 1, 2, 7)
+        rec_1_dict = rec_1.to_dictionary()
+        rec_2 = Rectangle.create(**rec_1_dict)
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(rec_2))
+
+    def test_create_rectangle_is(self):
+        """Test case for testing two rectangles"""
+        rec_1 = Rectangle(3, 5, 1, 2, 7)
+        rec_1_dict = rec_1.to_dictionary()
+        rec_2 = Rectangle.create(**rec_1_dict)
+        self.assertIsNot(rec_1, rec_2)
+
+    def test_create_rectangle_equals(self):
+        """Test case for testing two rectangles"""
+        rec_1 = Rectangle(3, 5, 1, 2, 7)
+        rec_1_dict = rec_1.to_dictionary()
+        rec_2 = Rectangle.create(**rec_1_dict)
+        self.assertNotEqual(rec_1, rec_2)
+
+    def test_create_square_original(self):
+        """Test case for creating a square"""
+        sq_1 = Square(3, 5, 1, 7)
+        self.assertEqual("[Square] (7) 5/5 - 3", str(sq_1))
+
+    def test_create_square_new(self):
+        """Test case for creating a new square"""
+        sq_1 = Square(3, 5, 1, 7)
+        sq_1_dict = sq_1.to_dictionary()
+        sq_2 = Square.create(**sq_1_dict)
+        self.assertEqual("[Square] (7) 5/5 - 3", str(sq_2))
+
+    def test_create_square_is(self):
+        """Test case for comparing squares"""
+        sq_1 = Square(3, 5, 1, 7)
+        sq_1_dict = sq_1.to_dictionary()
+        sq_2 = Square.create(**sq_1_dict)
+        self.assertIsNot(sq_1, sq_2)
+
+    def test_create_square_equals(self):
+        """Test case for creating two equal squares"""
+        sq_1 = Square(3, 5, 1, 7)
+        sq_1_dict = sq_1.to_dictionary()
+        sq_2 = Square.create(**sq_1_dict)
+        self.assertNotEqual(sq_1, sq_2)
