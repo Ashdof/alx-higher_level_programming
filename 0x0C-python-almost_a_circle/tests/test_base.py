@@ -3,6 +3,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import unittest
 from models.base import Base
 
@@ -12,6 +13,8 @@ from models.base import Base
 """
 
 =======
+=======
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 =======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
 import os
@@ -34,6 +37,9 @@ from models.square import Square
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
+=======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
 =======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
@@ -77,7 +83,12 @@ class TestBaseIntantiation(unittest.TestCase):
         """Test case for a ductionary id"""
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.assertEqual(Base({"Jay": 87, "Kay": 78}).id, {'Jay': 87, 'Kay': 78})
+=======
+        self.assertEqual(Base({"Jay": 87, "Kay": 78}).id,
+                         {'Jay': 87, 'Kay': 78})
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 =======
         self.assertEqual(Base({"Jay": 87, "Kay": 78}).id,
                          {'Jay': 87, 'Kay': 78})
@@ -107,7 +118,12 @@ class TestBaseIntantiation(unittest.TestCase):
         """Test case for a frozenset argument"""
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.assertEqual(Base(frozenset({3, 10, -12})).id, frozenset({10, 3, -12}))
+=======
+        self.assertEqual(Base(frozenset({3, 10, -12})).id,
+                         frozenset({10, 3, -12}))
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 =======
         self.assertEqual(Base(frozenset({3, 10, -12})).id,
                          frozenset({10, 3, -12}))
@@ -147,7 +163,10 @@ class TestBaseIntantiation(unittest.TestCase):
             Base(6, 3)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 =======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
 
@@ -604,6 +623,9 @@ class TestBaseLoadFromFileCSV(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
+=======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
 =======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
