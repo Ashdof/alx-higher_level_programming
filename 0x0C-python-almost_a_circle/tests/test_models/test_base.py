@@ -14,6 +14,7 @@ from models.square import Square
     TestBaseSaveToFile      ---------------> line
     TestBaseFromJsonString  ---------------> line
     TestBaseCreate          ---------------> line
+    TestBaseLoadFromFile    ---------------> line
 """
 
 
@@ -318,3 +319,77 @@ class TestBaseCreate(unittest.TestCase):
         sq_1_dict = sq_1.to_dictionary()
         sq_2 = Square.create(**sq_1_dict)
         self.assertNotEqual(sq_1, sq_2)
+
+
+class TestBaseLoadFromFile(unittest.TestCase):
+    """Unittest for load_from_file_method of Base class"""
+
+    @classmethod
+    def tearDown(self):
+        """Delete any created files"""
+        try:
+            os.remove("Rectangle.json")
+        except IOError:
+            pass
+        try:
+            os.remove("Square.json")
+        except IOError:
+            pass
+
+    def test_load_from_file_first_rectangle(self):
+        """Test case for loading first rectangle from file"""
+        rec_1 = Rectangle(10, 7, 2, 8, 1)
+        rec_2 = Rectangle(2, 4, 5, 6, 2)
+        Rectangle.save_to_file([rec_1, rec_2])
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(rec_1), str(list_rectangles_output[0]))
+
+    def test_load_from_file_second_rectangle(self):
+        """Test case for loading second rectangle from file"""
+        rec_1 = Rectangle(10, 7, 2, 8, 1)
+        rec_2 = Rectangle(2, 4, 5, 6, 2)
+        Rectangle.save_to_file([rec_1, rec_2])
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(rec_2), str(list_rectangles_output[1]))
+
+    def test_load_from_file_rectangle_types(self):
+        """Test case for the types of object loaded from file"""
+        rec_1 = Rectangle(10, 7, 2, 8, 1)
+        rec_2 = Rectangle(2, 4, 5, 6, 2)
+        Rectangle.save_to_file([rec_1, rec_2])
+        output = Rectangle.load_from_file()
+        self.assertTrue(all(isinstance(obj, Rectangle) for obj in output))
+
+    def test_load_from_file_first_square(self):
+        """Test case for loading first square instance from file"""
+        sq_1 = Square(5, 1, 3, 3)
+        sq_2 = Square(9, 5, 2, 3)
+        Square.save_to_file([sq_1, sq_2])
+        list_squares_output = Square.load_from_file()
+        self.assertEqual(str(sq_1), str(list_squares_output[0]))
+
+    def test_load_from_file_second_square(self):
+        """Test case for loading second square instance from file"""
+        sq_1 = Square(5, 1, 3, 3)
+        sq_2 = Square(9, 5, 2, 3)
+        Square.save_to_file([sq_1, sq_2])
+        list_squares_output = Square.load_from_file()
+        self.assertEqual(str(sq_2), str(list_squares_output[1]))
+
+    def test_load_from_file_square_types(self):
+        """Test case for the types of object loaded from file"""
+        sq_1 = Square(5, 1, 3, 3)
+        sq_2 = Square(9, 5, 2, 3)
+        Square.save_to_file([sq_1, sq_2])
+        output = Square.load_from_file()
+        self.assertTrue(all(isinstance(obj, Square) for obj in output))
+
+    def test_load_from_file_no_file(self):
+        """Test case for loading no file"""
+        output = Square.load_from_file()
+        self.assertEqual([], output)
+
+    def test_load_from_file_more_than_one_arg(self):
+        """Test case for loading more than one file"""
+        with self.assertRaises(TypeError):
+            Base.load_from_file([], 1)
