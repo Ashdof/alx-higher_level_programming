@@ -3,11 +3,15 @@
 
 import unittest
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 """
     Unit Test Classe Contents:
-    TestBaseIntantiation ---------------> line 12
+    TestBaseIntantiation    ---------------> line
+    TestBaseToJsonString    ---------------> line
 """
+
 
 class TestBaseIntantiation(unittest.TestCase):
     """Unittest for instantiation of the Base class"""
@@ -47,7 +51,8 @@ class TestBaseIntantiation(unittest.TestCase):
 
     def test_dict_id(self):
         """Test case for a ductionary id"""
-        self.assertEqual(Base({"Jay": 87, "Kay": 78}).id, {'Jay': 87, 'Kay': 78})
+        self.assertEqual(Base({"Jay": 87, "Kay": 78}).id,
+                         {'Jay': 87, 'Kay': 78})
 
     def test_bool_id(self):
         """Test case for a Boolean id"""
@@ -67,7 +72,8 @@ class TestBaseIntantiation(unittest.TestCase):
 
     def test_frozenset_id(self):
         """Test case for a frozenset argument"""
-        self.assertEqual(Base(frozenset({3, 10, -12})).id, frozenset({10, 3, -12}))
+        self.assertEqual(Base(frozenset({3, 10, -12})).id,
+                         frozenset({10, 3, -12}))
 
     def test_range_id(self):
         """Test case for a range id"""
@@ -97,3 +103,43 @@ class TestBaseIntantiation(unittest.TestCase):
         """Test case for two arguments"""
         with self.assertRaises(TypeError):
             Base(6, 3)
+
+
+class TestBaseToJsonString(unittest.TestCase):
+    """Unittest for to_json_string method of Base class"""
+
+    def test_to_json_string_rectangle_type(self):
+        """Test case for rectangle initialisation"""
+        rec = Rectangle(10, 7, 2, 8, 6)
+        self.assertEqual(type(Base.to_json_string([rec.to_dictionary()])), str)
+
+    def test_to_json_string_square_type(self):
+        """Test case for square initialisation"""
+        square = Square(10, 2, 3, 4)
+        self.assertEqual(type(Base.to_json_string([square.to_dictionary()])),
+                         str)
+
+    def test_to_json_string_square_two_dicts(self):
+        """Test case for two squares"""
+        square_1 = Square(10, 2, 3, 4)
+        square_2 = Square(4, 5, 21, 2)
+        list_dicts = [square_1.to_dictionary(), square_2.to_dictionary()]
+        self.assertTrue(len(Base.to_json_string(list_dicts)) == 163)
+
+    def test_to_json_string_empty_list(self):
+        """Test case with an empty list"""
+        self.assertEqual(Base.to_json_string([]), "[]")
+
+    def test_to_json_string_none(self):
+        """Test case for a None argument"""
+        self.assertEqual(Base.to_json_string(None), "[]")
+
+    def test_to_json_string_no_args(self):
+        """Test case for no argument"""
+        with self.assertRaises(TypeError):
+            Base.to_json_string()
+
+    def test_to_json_string_more_than_one_arg(self):
+        """Test case for more than one argument"""
+        with self.assertRaises(TypeError):
+            Base.to_json_string([], 1)
