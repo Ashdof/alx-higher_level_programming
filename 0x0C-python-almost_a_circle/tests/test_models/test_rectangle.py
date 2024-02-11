@@ -8,6 +8,7 @@ from models.rectangle import Rectangle
 
 """
     Unit Test Cases for Rectangle Objects
+<<<<<<< HEAD
     TestRectangleInstantiation  -------------> line
     TestRectangleWidth          -------------> line
     TestRectangleHeight         -------------> line
@@ -23,6 +24,17 @@ from models.rectangle import Rectangle
 =======
     TestRectangleToDictionary   -------------> line
 >>>>>>> 142d645 (Added test cases for rectangle)
+=======
+    TestRectangleInstantiation  -------------> line 23
+    TestRectangleWidth          -------------> line 132
+    TestRectangleHeight         -------------> line 231
+    TestRectangleX              -------------> line 330
+    TestRectangleY              -------------> line 419
+    TestRectangleArea           -------------> line 508
+    TestRectangleUpdateArgs     -------------> line 535
+    TestRectangleUpdateKwargs   -------------> line 662
+    TestRectangleToDictionary   -------------> line 783
+>>>>>>> b5a478b (Updated test classes)
 """
 
 
