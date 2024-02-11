@@ -9,12 +9,15 @@ from models.rectangle import Rectangle
 """
     Unit Test Cases for Rectangle Objects
 <<<<<<< HEAD
+<<<<<<< HEAD
     TestRectangleInstantiation  -------------> line
     TestRectangleWidth          -------------> line
     TestRectangleHeight         -------------> line
     TestRectangleX              -------------> line
     TestRectangleY              -------------> line
 =======
+=======
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
     TestRectangleInstantiation  -------------> line 23
     TestRectangleWidth          -------------> line 132
     TestRectangleHeight         -------------> line 231
@@ -24,6 +27,9 @@ from models.rectangle import Rectangle
     TestRectangleUpdateArgs     -------------> line 535
     TestRectangleUpdateKwargs   -------------> line 662
     TestRectangleToDictionary   -------------> line 783
+<<<<<<< HEAD
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
+=======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
 """
 
@@ -514,6 +520,7 @@ class TestRectangleY(unittest.TestCase):
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class TestRectangleHeight(unittest.TestCase):
     """Unittest for initialization of Rectangle height attribute"""
 
@@ -790,6 +797,8 @@ class TestRectangleY(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(7, 8, 9, float('nan'))
 =======
+=======
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 class TestRectangleArea(unittest.TestCase):
     """Unittest for area of the rectangle"""
 
@@ -1086,4 +1095,7 @@ class TestRectangleToDictionary(unittest.TestCase):
         rec = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
             rec.to_dictionary(1)
+<<<<<<< HEAD
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
+=======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)

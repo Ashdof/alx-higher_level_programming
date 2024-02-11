@@ -2,6 +2,7 @@
 """Unit test module"""
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import unittest
 from models.base import Base
 
@@ -11,6 +12,8 @@ from models.base import Base
 """
 
 =======
+=======
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 import os
 import unittest
 from models.base import Base
@@ -30,6 +33,9 @@ from models.square import Square
 """
 
 
+<<<<<<< HEAD
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
+=======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
 class TestBaseIntantiation(unittest.TestCase):
     """Unittest for instantiation of the Base class"""
@@ -70,7 +76,12 @@ class TestBaseIntantiation(unittest.TestCase):
     def test_dict_id(self):
         """Test case for a ductionary id"""
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.assertEqual(Base({"Jay": 87, "Kay": 78}).id, {'Jay': 87, 'Kay': 78})
+=======
+        self.assertEqual(Base({"Jay": 87, "Kay": 78}).id,
+                         {'Jay': 87, 'Kay': 78})
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 =======
         self.assertEqual(Base({"Jay": 87, "Kay": 78}).id,
                          {'Jay': 87, 'Kay': 78})
@@ -95,7 +106,12 @@ class TestBaseIntantiation(unittest.TestCase):
     def test_frozenset_id(self):
         """Test case for a frozenset argument"""
 <<<<<<< HEAD
+<<<<<<< HEAD
         self.assertEqual(Base(frozenset({3, 10, -12})).id, frozenset({10, 3, -12}))
+=======
+        self.assertEqual(Base(frozenset({3, 10, -12})).id,
+                         frozenset({10, 3, -12}))
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 =======
         self.assertEqual(Base(frozenset({3, 10, -12})).id,
                          frozenset({10, 3, -12}))
@@ -130,7 +146,10 @@ class TestBaseIntantiation(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base(6, 3)
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
 
 
 class TestBaseToJsonString(unittest.TestCase):
@@ -584,4 +603,7 @@ class TestBaseLoadFromFileCSV(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+<<<<<<< HEAD
+>>>>>>> a6bc564 (Added test files to be discovered by unittest)
+=======
 >>>>>>> a6bc564 (Added test files to be discovered by unittest)
