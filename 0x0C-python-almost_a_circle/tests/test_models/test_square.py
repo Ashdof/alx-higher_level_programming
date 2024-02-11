@@ -9,13 +9,13 @@ from models.square import Square
     Define unittests for models/square.py.
 
     Unittest classes:
-    TestSquareInstantiation --------------> line
-    TestSquareSize          --------------> line
-    TestSquareUpdateArgs    --------------> line
-    TestSquareUpdateKwargs  --------------> line
-    TestSquareX             --------------> line
-    TestSquareArea          --------------> line
-    TestSquareToDictionary  --------------> line
+    TestSquareInstantiation --------------> line 22
+    TestSquareSize          --------------> line 97
+    TestSquareUpdateArgs    --------------> line 191
+    TestSquareUpdateKwargs  --------------> line 299
+    TestSquareX             --------------> line 402
+    TestSquareArea          --------------> line 491
+    TestSquareToDictionary  --------------> line 516
 """
 
 
