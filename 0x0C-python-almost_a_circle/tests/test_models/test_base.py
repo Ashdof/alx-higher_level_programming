@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Unit test module"""
 
+import os
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -10,6 +11,7 @@ from models.square import Square
     Unit Test Classe Contents:
     TestBaseIntantiation    ---------------> line
     TestBaseToJsonString    ---------------> line
+    TestBaseSaveToFile      ---------------> line
 """
 
 
@@ -143,3 +145,75 @@ class TestBaseToJsonString(unittest.TestCase):
         """Test case for more than one argument"""
         with self.assertRaises(TypeError):
             Base.to_json_string([], 1)
+
+
+class TestBaseSaveToFile(unittest.TestCase):
+    """Unittest for save_to_file method of the Base class"""
+
+    @classmethod
+    def tearDown(self):
+        """Delete any created files"""
+        try:
+            os.remove("Rectangle.json")
+        except IOError:
+            pass
+        try:
+            os.remove("Square.json")
+        except IOError:
+            pass
+        try:
+            os.remove("Base.json")
+        except IOError:
+            pass
+
+    def test_save_to_file_one_rectangle(self):
+        """Test case for saving a rectangle object to file"""
+        rec = Rectangle(10, 7, 2, 8, 5)
+        Rectangle.save_to_file([rec])
+        with open("Rectangle.json", "r", encoding="UTF-8") as file:
+            self.assertTrue(len(file.read()) == 105)
+
+    def test_save_to_file_one_square(self):
+        """Test case for saving a square object to file"""
+        square = Square(10, 7, 2, 8)
+        Square.save_to_file([square])
+        with open("Square.json", "r", encoding="UTF-8") as file:
+            self.assertTrue(len(file.read()) == 83)
+
+    def test_save_to_file_cls_name_for_filename(self):
+        """Test case for saving a object by cls"""
+        square = Square(10, 7, 2, 8)
+        Base.save_to_file([square])
+        with open("Base.json", "r", encoding="UTF-8") as file:
+            self.assertTrue(len(file.read()) == 83)
+
+    def test_save_to_file_overwrite(self):
+        """Test case for overwriting previous data"""
+        square = Square(9, 2, 39, 2)
+        Square.save_to_file([square])
+        square = Square(10, 7, 2, 8)
+        Square.save_to_file([square])
+        with open("Square.json", "r", encoding="UTF-8") as file:
+            self.assertTrue(len(file.read()) == 83)
+
+    def test_save_to_file_none(self):
+        """Test case for saving a None to file"""
+        Square.save_to_file(None)
+        with open("Square.json", "r", encoding="UTF-8") as file:
+            self.assertEqual("[]", file.read())
+
+    def test_save_to_file_empty_list(self):
+        """Test case for saving an empty list"""
+        Square.save_to_file([])
+        with open("Square.json", "r", encoding="UTF-8") as file:
+            self.assertEqual("[]", file.read())
+
+    def test_save_to_file_no_args(self):
+        """Test case for saving to file with an empty argument"""
+        with self.assertRaises(TypeError):
+            Rectangle.save_to_file()
+
+    def test_save_to_file_more_than_one_arg(self):
+        """Test case for saving with more than one argument"""
+        with self.assertRaises(TypeError):
+            Square.save_to_file([], 1)
