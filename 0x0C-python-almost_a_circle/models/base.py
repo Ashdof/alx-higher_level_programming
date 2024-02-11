@@ -86,7 +86,7 @@ class Base:
         if json_string is None or json_string == []:
             return []
 
-        json.loads(json_string)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
@@ -111,3 +111,25 @@ class Base:
             new.update(**dictionary)
 
             return new
+
+    @classmethod
+    def load_from_file(cls):
+        """Load from File
+
+        Description:
+            This method loads instances from a file
+
+        Returns:
+            If the file does not exist - an empty list.
+            Otherwise - a list of instantiated classes.
+        """
+
+        filename = str(cls.__name__) + ".json"
+
+        try:
+            with open(filename, "r", encoding="UTF-8") as jsonfile:
+                list_dicts = Base.from_json_string(jsonfile.read())
+                return [cls.create(**d) for d in list_dicts]
+
+        except IOError:
+            return []
