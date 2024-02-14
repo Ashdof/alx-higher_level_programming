@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+<<<<<<< HEAD
 """A module with a class that models a rectangle"""
+=======
+"""A module that contains a Rectangle class"""
+>>>>>>> 10e63ca (Improved documentation of modules)
 
 from models.base import Base
 
