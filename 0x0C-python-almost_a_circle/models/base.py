@@ -7,7 +7,7 @@ import turtle
 
 
 class Base:
-    """The base class"""
+    """A class that serves as the base to model shapes"""
 
     __nb_objects = 0
 
