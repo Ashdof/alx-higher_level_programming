@@ -216,18 +216,18 @@ class Rectangle(Base):
                 match i:
                     case 0:
                         if arg is None:
-                            self.__init__(self.width, self.height,
-                                          self.x, self.y)
+                            self.__init__(self.__width, self.__height,
+                                          self.__x, self.__y)
                         else:
-                            self.id = arg
+                            self.__id = arg
                     case 1:
-                        self.width = arg
+                        self.__width = arg
                     case 2:
-                        self.height = arg
+                        self.__height = arg
                     case 3:
-                        self.x = arg
+                        self.__x = arg
                     case 4:
-                        self.y = arg
+                        self.__y = arg
                 i += 1
 
     def display(self):
