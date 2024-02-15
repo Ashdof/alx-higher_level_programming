@@ -8,29 +8,6 @@ from models.rectangle import Rectangle
 
 """
     Unit Test Cases for Rectangle Objects
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 780cc48 (Revert "Updated test classes")
-    TestRectangleInstantiation  -------------> line
-<<<<<<< HEAD
-    TestRectangleWidth          -------------> line
-    TestRectangleHeight         -------------> line
-    TestRectangleX              -------------> line
-    TestRectangleY              -------------> line
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    TestRectangleArea           -------------> line
-<<<<<<< HEAD
-    TestRectangleUpdateArgs     -------------> line
-    TestRectangleUpdateKwargs   -------------> line
-<<<<<<< HEAD
->>>>>>> 2238857 (Added more test cases for update function)
-=======
-    TestRectangleToDictionary   -------------> line
->>>>>>> 142d645 (Added test cases for rectangle)
-=======
     TestRectangleInstantiation  -------------> line 23
     TestRectangleWidth          -------------> line 132
     TestRectangleHeight         -------------> line 231
@@ -40,21 +17,7 @@ from models.rectangle import Rectangle
     TestRectangleUpdateArgs     -------------> line 535
     TestRectangleUpdateKwargs   -------------> line 662
     TestRectangleToDictionary   -------------> line 783
->>>>>>> b5a478b (Updated test classes)
-=======
     TestRectangleArea           -------------> line
-    TestRectangleUpdateArgs     -------------> line
-    TestRectangleUpdateKwargs   -------------> line
-<<<<<<< HEAD
-    TestRectangleToDictionary   -------------> line
->>>>>>> 780cc48 (Revert "Updated test classes")
-=======
->>>>>>> 2f69ce8 (Revert "Added test cases for rectangle")
-=======
->>>>>>> 608c390 (Revert "Added more test cases for update function")
-=======
-    TestRectangleWidth          ------------->
->>>>>>> 9ea7cc5 (Revert "Task 4 - added test cases for area function")
 """
 
 
@@ -541,7 +504,6 @@ class TestRectangleY(unittest.TestCase):
         """Test case for assigning a Nan object to coordinate y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(7, 8, 9, float('nan'))
-<<<<<<< HEAD
 
 
 class TestRectangleHeight(unittest.TestCase):
@@ -562,7 +524,6 @@ class TestRectangleHeight(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             Rectangle(8, None)
 
-<<<<<<< HEAD
     def test_str_height(self):
         """Test case for assigning string of charaters to height"""
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
@@ -820,13 +781,12 @@ class TestRectangleY(unittest.TestCase):
         """Test case for assigning a Nan object to coordinate y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(7, 8, 9, float('nan'))
-=======
+    
     def test_area_one_arg(self):
         """Test case for an area with one argument"""
         rec = Rectangle(2, 10, 1, 1, 1)
         with self.assertRaises(TypeError):
             rec.area(1)
-<<<<<<< HEAD
 
 
 class TestRectangleUpdateArgs(unittest.TestCase):
@@ -954,10 +914,6 @@ class TestRectangleUpdateArgs(unittest.TestCase):
         rec = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             rec.update(89, 1, 2, 3, -6)
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 10afec5 (Added test cases for update function)
-=======
 
 
 class TestRectangleUpdateKwargs(unittest.TestCase):
@@ -1079,10 +1035,6 @@ class TestRectangleUpdateKwargs(unittest.TestCase):
         rec = Rectangle(10, 10, 10, 10, 10)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             rec.update(width=9, id=3, height=2, x=3, y=-6)
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 2238857 (Added more test cases for update function)
-=======
 
 
 class TestRectangleToDictionary(unittest.TestCase):
@@ -1106,12 +1058,3 @@ class TestRectangleToDictionary(unittest.TestCase):
         rec = Rectangle(10, 2, 4, 1, 2)
         with self.assertRaises(TypeError):
             rec.to_dictionary(1)
->>>>>>> 142d645 (Added test cases for rectangle)
-=======
->>>>>>> 2f69ce8 (Revert "Added test cases for rectangle")
-=======
->>>>>>> 608c390 (Revert "Added more test cases for update function")
-=======
->>>>>>> ce0159d (Revert "Added test cases for update function")
-=======
->>>>>>> 9ea7cc5 (Revert "Task 4 - added test cases for area function")

@@ -3,15 +3,7 @@
 
 
 class Base:
-<<<<<<< HEAD
-<<<<<<< HEAD
     """The base class from which other classes will inherit"""
-=======
-    """A class that serves as the base to model shapes"""
->>>>>>> 10e63ca (Improved documentation of modules)
-=======
-    """The base class"""
->>>>>>> 4394e1f (Revert "Improved documentation of modules")
 
     __nb_objects = 0
 
