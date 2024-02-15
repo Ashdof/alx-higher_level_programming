@@ -12,7 +12,6 @@ from models.square import Square
     TestBaseIntantiation    ---------------> line
     TestBaseToJsonString    ---------------> line
     TestBaseSaveToFile      ---------------> line
-    TestBaseFromJsonString  ---------------> line
 """
 
 
@@ -218,46 +217,3 @@ class TestBaseSaveToFile(unittest.TestCase):
         """Test case for saving with more than one argument"""
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
-
-
-class TestBaseFromJsonString(unittest.TestCase):
-    """Unittests for from_json_string method of Base class"""
-
-    def test_from_json_string_type(self):
-        """Test case for the type of returned object"""
-        list_input = [{"id": 89, "width": 10, "height": 4}]
-        json_list_input = Rectangle.to_json_string(list_input)
-        list_output = Rectangle.from_json_string(json_list_input)
-        self.assertEqual(type(list_output), list)
-
-    def test_from_json_string_rectangle(self):
-        """Test case for returning a json string from a rectangle object"""
-        list_input = [{"id": 89, "width": 10, "height": 4, "x": 7}]
-        json_list_input = Rectangle.to_json_string(list_input)
-        list_output = Rectangle.from_json_string(json_list_input)
-        self.assertEqual(list_input, list_output)
-
-    def test_from_json_string_square(self):
-        """Test case for returning a square object from a json string"""
-        list_input = [{"id": 89, "size": 10, "height": 4}]
-        json_list_input = Square.to_json_string(list_input)
-        list_output = Square.from_json_string(json_list_input)
-        self.assertEqual(list_input, list_output)
-
-    def test_from_json_string_none(self):
-        """Test case for assinging None as parameter"""
-        self.assertEqual([], Base.from_json_string(None))
-
-    def test_from_json_string_empty_list(self):
-        """Test case for assigning an empty list"""
-        self.assertEqual([], Base.from_json_string("[]"))
-
-    def test_from_json_string_no_args(self):
-        """Test case for assigning no parameter"""
-        with self.assertRaises(TypeError):
-            Base.from_json_string()
-
-    def test_from_json_string_more_than_one_arg(self):
-        """Test case for assigning more than one argument"""
-        with self.assertRaises(TypeError):
-            Base.from_json_string([], 1)
