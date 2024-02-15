@@ -67,22 +67,3 @@ class Base:
                     list_of_dicts.append(item.to_dictionary())
                 
                 save_file.write(Base.to_json_string(list_of_dicts))
-
-    def from_json_string(json_string):
-        """Load from JSON
-
-        Description:
-            This method creates a list representation of a
-            JSON string
-
-        Args:
-            json_string (json): a JSON string
-
-        Returns:
-            A list representation
-        """
-
-        if json_string is None or json_string == []:
-            return []
-        else:
-            json.loads(json_string)
