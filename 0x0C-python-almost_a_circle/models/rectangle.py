@@ -191,7 +191,7 @@ class Rectangle(Base):
             The computed area
         """
 
-        return self.__width * self.__height
+        return self.width * self.height
 
     def update(self, *args, **kwargs):
         """
@@ -269,3 +269,14 @@ class Rectangle(Base):
 
         info = "[Rectangle] ({}) {}/{} - {}/{}"
         return info.format(self.id, self.x, self.y, self.width, self.height)
+
+    def to_dictionary(self):
+        """Return the dictionary representation of this rectangle instance"""
+
+        return {
+                "id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y
+                }
