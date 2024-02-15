@@ -9,11 +9,15 @@ from models.rectangle import Rectangle
 """
     Unit Test Cases for Rectangle Objects
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 780cc48 (Revert "Updated test classes")
     TestRectangleInstantiation  -------------> line
     TestRectangleWidth          -------------> line
     TestRectangleHeight         -------------> line
     TestRectangleX              -------------> line
     TestRectangleY              -------------> line
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     TestRectangleArea           -------------> line
@@ -35,6 +39,12 @@ from models.rectangle import Rectangle
     TestRectangleUpdateKwargs   -------------> line 662
     TestRectangleToDictionary   -------------> line 783
 >>>>>>> b5a478b (Updated test classes)
+=======
+    TestRectangleArea           -------------> line
+    TestRectangleUpdateArgs     -------------> line
+    TestRectangleUpdateKwargs   -------------> line
+    TestRectangleToDictionary   -------------> line
+>>>>>>> 780cc48 (Revert "Updated test classes")
 """
 
 
