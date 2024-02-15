@@ -1,5 +1,0 @@
-#!/bin/bash
-pycodestyle models/$1
-chmod u+x models/$1
-chmod u+x $2
-./$2
