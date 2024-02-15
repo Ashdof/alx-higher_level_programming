@@ -2,7 +2,6 @@
 """A module with a base class"""
 
 import json
-import csv
 
 
 class Base:
@@ -132,52 +131,5 @@ class Base:
                 list_dicts = Base.from_json_string(jsonfile.read())
                 return [cls.create(**d) for d in list_dicts]
 
-        except IOError:
-            return []
-
-    @classmethod
-    def save_to_file_csv(cls, list_objs):
-        """Save to CSV file
-
-        Description:
-            This method serializes a CSV file
-
-        Args:
-            list_objs (list): a list of objects
-        """
-        filename = cls.__name__ + ".csv"
-        with open(filename, "w", newline="", encoding="UTF-8") as csvfile:
-            if list_objs is None or list_objs == []:
-                csvfile.write("[]")
-            else:
-                if cls.__name__ == "Rectangle":
-                    fieldnames = ["id", "width", "height", "x", "y"]
-                else:
-                    fieldnames = ["id", "size", "x", "y"]
-                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                for obj in list_objs:
-                    writer.writerow(obj.to_dictionary())
-
-    @classmethod
-    def load_from_file_csv(cls):
-        """Load from CSV file
-
-        Description:
-            This method deserialises an object from a CSV file
-
-        Returns:
-            A list of instantiated objects
-        """
-        filename = cls.__name__ + ".csv"
-        try:
-            with open(filename, "r", newline="", encoding="UTF-8") as csvfile:
-                if cls.__name__ == "Rectangle":
-                    fieldnames = ["id", "width", "height", "x", "y"]
-                else:
-                    fieldnames = ["id", "size", "x", "y"]
-                list_dicts = csv.DictReader(csvfile, fieldnames=fieldnames)
-                list_dicts = [dict([k, int(v)] for k, v in d.items())
-                              for d in list_dicts]
-                return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
