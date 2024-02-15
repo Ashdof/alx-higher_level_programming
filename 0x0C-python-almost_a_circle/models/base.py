@@ -3,7 +3,6 @@
 
 import json
 import csv
-import turtle
 
 
 class Base:
@@ -182,48 +181,3 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
-
-    def draw(list_rectangles, list_squares):
-        """Draw with turtle module
-
-        Description:
-            This method draws Rectangles and Squares using the
-            turtle module.
-
-        Args:
-            list_rectangles (list): A list of Rectangle objects to draw.
-            list_squares (list): A list of Square objects to draw.
-        """
-
-        turt = turtle.Turtle()
-        turt.screen.bgcolor("#154360")
-        turt.pensize(5)
-        turt.shape("turtle")
-
-        turt.color("#FFC300")
-        for rect in list_rectangles:
-            turt.showturtle()
-            turt.up()
-            turt.goto(rect.x, rect.y)
-            turt.down()
-            for i in range(3):
-                turt.forward(rect.width)
-                turt.left(90)
-                turt.forward(rect.height)
-                turt.left(90)
-            turt.hideturtle()
-
-        turt.color("#FF5733")
-        for sq in list_squares:
-            turt.showturtle()
-            turt.up()
-            turt.goto(sq.x, sq.y)
-            turt.down()
-            for i in range(3):
-                turt.forward(sq.width)
-                turt.left(90)
-                turt.forward(sq.height)
-                turt.left(90)
-            turt.hideturtle()
-
-        turtle.exitonclick()
