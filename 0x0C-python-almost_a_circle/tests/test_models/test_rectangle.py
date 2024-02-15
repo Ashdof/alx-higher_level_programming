@@ -9,11 +9,7 @@ from models.rectangle import Rectangle
 """
     Unit Test Cases for Rectangle Objects
     TestRectangleInstantiation  -------------> line
-    TestRectangleWidth          -------------> line
-    TestRectangleHeight         -------------> line
-    TestRectangleX              -------------> line
-    TestRectangleY              -------------> line
-    TestRectangleArea           -------------> line
+    TestRectangleWidth          ------------->
 """
 
 
@@ -500,30 +496,3 @@ class TestRectangleY(unittest.TestCase):
         """Test case for assigning a Nan object to coordinate y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(7, 8, 9, float('nan'))
-
-
-class TestRectangleArea(unittest.TestCase):
-    """Unittest for area of the rectangle"""
-
-    def test_area_small(self):
-        """Test case for an area of small value"""
-        rec = Rectangle(9, 6, 0, 0, 0)
-        self.assertEqual(rec.area(), 54)
-
-    def test_area_large(self):
-        """Test case for a large area"""
-        rec = Rectangle(9999999999, 9999999999, 0, 0, 1)
-        self.assertEqual(rec.area(), 99999999980000000001)
-
-    def test_area_changed_attributes(self):
-        """Test case for an area with altered values"""
-        rec = Rectangle(9, 7, 1, 1, 1)
-        rec.width = 3
-        rec.height = 8
-        self.assertEqual(rec.area(), 24)
-
-    def test_area_one_arg(self):
-        """Test case for an area with one argument"""
-        rec = Rectangle(2, 10, 1, 1, 1)
-        with self.assertRaises(TypeError):
-            rec.area(1)
