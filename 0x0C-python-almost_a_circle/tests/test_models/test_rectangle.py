@@ -821,6 +821,7 @@ class TestRectangleY(unittest.TestCase):
         rec = Rectangle(2, 10, 1, 1, 1)
         with self.assertRaises(TypeError):
             rec.area(1)
+<<<<<<< HEAD
 
 
 class TestRectangleUpdateArgs(unittest.TestCase):
@@ -1105,3 +1106,5 @@ class TestRectangleToDictionary(unittest.TestCase):
 >>>>>>> 2f69ce8 (Revert "Added test cases for rectangle")
 =======
 >>>>>>> 608c390 (Revert "Added more test cases for update function")
+=======
+>>>>>>> ce0159d (Revert "Added test cases for update function")
