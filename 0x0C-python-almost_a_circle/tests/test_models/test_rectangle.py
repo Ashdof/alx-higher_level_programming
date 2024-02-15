@@ -43,8 +43,11 @@ from models.rectangle import Rectangle
     TestRectangleArea           -------------> line
     TestRectangleUpdateArgs     -------------> line
     TestRectangleUpdateKwargs   -------------> line
+<<<<<<< HEAD
     TestRectangleToDictionary   -------------> line
 >>>>>>> 780cc48 (Revert "Updated test classes")
+=======
+>>>>>>> 2f69ce8 (Revert "Added test cases for rectangle")
 """
 
 
@@ -1067,6 +1070,7 @@ class TestRectangleUpdateKwargs(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             rec.update(width=9, id=3, height=2, x=3, y=-6)
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2238857 (Added more test cases for update function)
 =======
 
@@ -1093,3 +1097,5 @@ class TestRectangleToDictionary(unittest.TestCase):
         with self.assertRaises(TypeError):
             rec.to_dictionary(1)
 >>>>>>> 142d645 (Added test cases for rectangle)
+=======
+>>>>>>> 2f69ce8 (Revert "Added test cases for rectangle")
