@@ -13,6 +13,7 @@ from models.rectangle import Rectangle
 =======
 >>>>>>> 780cc48 (Revert "Updated test classes")
     TestRectangleInstantiation  -------------> line
+<<<<<<< HEAD
     TestRectangleWidth          -------------> line
     TestRectangleHeight         -------------> line
     TestRectangleX              -------------> line
@@ -51,6 +52,9 @@ from models.rectangle import Rectangle
 >>>>>>> 2f69ce8 (Revert "Added test cases for rectangle")
 =======
 >>>>>>> 608c390 (Revert "Added more test cases for update function")
+=======
+    TestRectangleWidth          ------------->
+>>>>>>> 9ea7cc5 (Revert "Task 4 - added test cases for area function")
 """
 
 
@@ -537,6 +541,7 @@ class TestRectangleY(unittest.TestCase):
         """Test case for assigning a Nan object to coordinate y"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(7, 8, 9, float('nan'))
+<<<<<<< HEAD
 
 
 class TestRectangleHeight(unittest.TestCase):
@@ -1108,3 +1113,5 @@ class TestRectangleToDictionary(unittest.TestCase):
 >>>>>>> 608c390 (Revert "Added more test cases for update function")
 =======
 >>>>>>> ce0159d (Revert "Added test cases for update function")
+=======
+>>>>>>> 9ea7cc5 (Revert "Task 4 - added test cases for area function")
