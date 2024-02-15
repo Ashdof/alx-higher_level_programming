@@ -193,6 +193,61 @@ class Rectangle(Base):
 
         return self.__width * self.__height
 
+    def update(self, *args, **kwargs):
+        """
+        Update Instance Attributes
+
+        Description:
+            This function updates the attributes of a retangle
+            instance
+
+        Args:
+            args (int): a variable length of integer arguments
+            kwargs (collection): a collection of key/value data
+            1st argument should be the id attribute
+            2nd argument should be the width attribute
+            3rd argument should be the height attribute
+            4th argument should be the x attribute
+            5th argument should be the y attribute
+        """
+
+        if args and args != 0:
+            i = 0
+            for arg in args:
+                match i:
+                    case 0:
+                        if arg is None:
+                            self.__init__(self.width, self.height,
+                                          self.x, self.y)
+                        else:
+                            self.id = arg
+                    case 1:
+                        self.width = arg
+                    case 2:
+                        self.height = arg
+                    case 3:
+                        self.x = arg
+                    case 4:
+                        self.y = arg
+                i += 1
+        else:
+            for key, vals in kwargs.items():
+                match key:
+                    case "id":
+                        if vals is None:
+                            self.__init__(self.width, self.height,
+                                          self.x, self.y)
+                        else:
+                            self.id = vals
+                    case "width":
+                        self.width = vals
+                    case "height":
+                        self.height = vals
+                    case "x":
+                        self.x = vals
+                    case "y":
+                        self.y = vals
+
     def display(self):
         """
         Display Object
