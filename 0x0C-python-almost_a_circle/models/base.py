@@ -65,10 +65,9 @@ class Base:
                 list_of_dicts = []
                 for item in list_objs:
                     list_of_dicts.append(item.to_dictionary())
-
+                
                 save_file.write(Base.to_json_string(list_of_dicts))
 
-    @staticmethod
     def from_json_string(json_string):
         """Load from JSON
 
@@ -85,5 +84,5 @@ class Base:
 
         if json_string is None or json_string == []:
             return []
-
-        json.loads(json_string)
+        else:
+            json.loads(json_string)
