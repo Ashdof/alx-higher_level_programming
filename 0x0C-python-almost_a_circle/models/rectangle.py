@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""A module that contains a Rectangle class"""
+"""A module with a class that models a rectangle"""
 
 from models.base import Base
 
 
 class Rectangle(Base):
-    """A class to model a rectangle"""
+    """A class to model a rectangle and inherits from a base class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialise class
@@ -178,105 +178,3 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
 
         self.__y = value
-
-    def area(self):
-        """
-        Compute area
-
-        Description:
-            This function computes the area of a rectangle
-            instance
-
-        Returns:
-            The computed area
-        """
-
-        return self.width * self.height
-
-    def update(self, *args, **kwargs):
-        """
-        Update Instance Attributes
-
-        Description:
-            This function updates the attributes of a retangle
-            instance
-
-        Args:
-            args (int): a variable length of integer arguments
-            kwargs (collection): a collection of key/value data
-            1st argument should be the id attribute
-            2nd argument should be the width attribute
-            3rd argument should be the height attribute
-            4th argument should be the x attribute
-            5th argument should be the y attribute
-        """
-
-        if args and args != 0:
-            i = 0
-            for arg in args:
-                match i:
-                    case 0:
-                        if arg is None:
-                            self.__init__(self.width, self.height,
-                                          self.x, self.y)
-                        else:
-                            self.id = arg
-                    case 1:
-                        self.width = arg
-                    case 2:
-                        self.height = arg
-                    case 3:
-                        self.x = arg
-                    case 4:
-                        self.y = arg
-                i += 1
-        else:
-            for key, vals in kwargs.items():
-                match key:
-                    case "id":
-                        if vals is None:
-                            self.__init__(self.width, self.height,
-                                          self.x, self.y)
-                        else:
-                            self.id = vals
-                    case "width":
-                        self.width = vals
-                    case "height":
-                        self.height = vals
-                    case "x":
-                        self.x = vals
-                    case "y":
-                        self.y = vals
-
-    def display(self):
-        """
-        Display Object
-
-        Description:
-            This function displays a rectangle object using
-            the # character
-        """
-
-        [print("") for y in range(self.y)]
-        for i in range(self.height):
-            [print(" ", end="") for x in range(self.x)]
-            for j in range(self.width):
-                print('#', end='')
-            print("")
-
-    def __str__(self):
-        """Return a string representation of this rectangle object"""
-
-        info = "[Rectangle] ({}) {}/{} - {}/{}"
-        return info.format(self.id, self.x, self.y, self.width, self.height)
-
-    def to_dictionary(self):
-        """Return the dictionary representation of this rectangle instance"""
-
-        return {
-                "id": self.id,
-                "width": self.width,
-                "height": self.height,
-                "x": self.x,
-                "y": self.y
-                }
