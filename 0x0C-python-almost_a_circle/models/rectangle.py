@@ -191,4 +191,4 @@ class Rectangle(Base):
             The computed area
         """
 
-        return self.width * self.height
+        return self.__width * self.__height
