@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Rectangle module"""
+"""A module with a class that models a rectangle"""
 
 from models.base import Base
 
 
 class Rectangle(Base):
-    """A class to model a rectangle"""
+    """A class to model a rectangle and inherits from a base class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialise class

@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""A module with a base class"""
+"""A module with a base class from which other classes will inherit"""
 
 
 class Base:
-    """The base class"""
+    """The base class from which other classes will inherit"""
 
     __nb_objects = 0
 
