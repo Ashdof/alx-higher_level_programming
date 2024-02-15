@@ -8,15 +8,15 @@ from models.rectangle import Rectangle
 
 """
     Unit Test Cases for Rectangle Objects
-    TestRectangleInstantiation  -------------> line 23
-    TestRectangleWidth          -------------> line 132
-    TestRectangleHeight         -------------> line 231
-    TestRectangleX              -------------> line 330
-    TestRectangleY              -------------> line 419
-    TestRectangleArea           -------------> line 508
-    TestRectangleUpdateArgs     -------------> line 535
-    TestRectangleUpdateKwargs   -------------> line 662
-    TestRectangleToDictionary   -------------> line 783
+    TestRectangleInstantiation  -------------> line
+    TestRectangleWidth          -------------> line
+    TestRectangleHeight         -------------> line
+    TestRectangleX              -------------> line
+    TestRectangleY              -------------> line
+    TestRectangleArea           -------------> line
+    TestRectangleUpdateArgs     -------------> line
+    TestRectangleUpdateKwargs   -------------> line
+    TestRectangleToDictionary   -------------> line
 """
 
 
