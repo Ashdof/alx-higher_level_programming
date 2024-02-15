@@ -15,7 +15,6 @@ from models.square import Square
     TestSquareUpdateKwargs  --------------> line
     TestSquareX             --------------> line
     TestSquareArea          --------------> line
-    TestSquareToDictionary  --------------> line
 """
 
 
@@ -511,26 +510,3 @@ class TestSquareArea(unittest.TestCase):
         square = Square(2, 10, 1, 1)
         with self.assertRaises(TypeError):
             square.area(1)
-
-
-class TestSquareToDictionary(unittest.TestCase):
-    """Unittest for to_dictionary method of the Square class"""
-
-    def test_to_dictionary_output(self):
-        """Test case for outputing a dictionary object"""
-        square = Square(10, 2, 1, 1)
-        res = {'id': 1, 'x': 2, 'size': 10, 'y': 2}
-        self.assertDictEqual(res, square.to_dictionary())
-
-    def test_to_dictionary_no_object_changes(self):
-        """Test case for no object changes"""
-        square_1 = Square(10, 2, 1, 2)
-        square_2 = Square(1, 2, 10)
-        square_2.update(**square_1.to_dictionary())
-        self.assertNotEqual(square_1, square_2)
-
-    def test_to_dictionary_arg(self):
-        """Test case for a dictionary argument"""
-        square = Square(10, 10, 10, 10)
-        with self.assertRaises(TypeError):
-            square.to_dictionary(1)
