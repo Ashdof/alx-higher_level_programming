@@ -1,22 +1,6 @@
 #!/usr/bin/python3
 """Unit test module"""
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-import unittest
-from models.base import Base
-
-"""
-    Unit Test Classe Contents:
-    TestBaseIntantiation ---------------> line 12
-"""
-
-=======
-=======
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
 import os
 import unittest
 from models.base import Base
@@ -36,13 +20,6 @@ from models.square import Square
 """
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
 class TestBaseIntantiation(unittest.TestCase):
     """Unittest for instantiation of the Base class"""
 
@@ -81,22 +58,8 @@ class TestBaseIntantiation(unittest.TestCase):
 
     def test_dict_id(self):
         """Test case for a ductionary id"""
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        self.assertEqual(Base({"Jay": 87, "Kay": 78}).id, {'Jay': 87, 'Kay': 78})
-=======
         self.assertEqual(Base({"Jay": 87, "Kay": 78}).id,
                          {'Jay': 87, 'Kay': 78})
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
-        self.assertEqual(Base({"Jay": 87, "Kay": 78}).id,
-                         {'Jay': 87, 'Kay': 78})
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
-        self.assertEqual(Base({"Jay": 87, "Kay": 78}).id,
-                         {'Jay': 87, 'Kay': 78})
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
 
     def test_bool_id(self):
         """Test case for a Boolean id"""
@@ -116,22 +79,8 @@ class TestBaseIntantiation(unittest.TestCase):
 
     def test_frozenset_id(self):
         """Test case for a frozenset argument"""
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        self.assertEqual(Base(frozenset({3, 10, -12})).id, frozenset({10, 3, -12}))
-=======
         self.assertEqual(Base(frozenset({3, 10, -12})).id,
                          frozenset({10, 3, -12}))
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
-        self.assertEqual(Base(frozenset({3, 10, -12})).id,
-                         frozenset({10, 3, -12}))
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
-        self.assertEqual(Base(frozenset({3, 10, -12})).id,
-                         frozenset({10, 3, -12}))
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
 
     def test_range_id(self):
         """Test case for a range id"""
@@ -161,14 +110,6 @@ class TestBaseIntantiation(unittest.TestCase):
         """Test case for two arguments"""
         with self.assertRaises(TypeError):
             Base(6, 3)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
 
 
 class TestBaseToJsonString(unittest.TestCase):
@@ -622,10 +563,3 @@ class TestBaseLoadFromFileCSV(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
->>>>>>> a6bc564 (Added test files to be discovered by unittest)
-=======
->>>>>>> a6bc564 (Added test files to be discovered by unittest)

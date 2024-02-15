@@ -1,12 +1,8 @@
 #!/usr/bin/python3
 """ 1-main """
-<<<<<<< HEAD
-from models.rectangle import Rectangle
-=======
 
 import models.rectangle
 # from models.rectangle import Rectangle
->>>>>>> 5d0af4e (Added trial files)
 
 if __name__ == "__main__":
 
