@@ -193,7 +193,7 @@ class Rectangle(Base):
 
         return self.__width * self.__height
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Update Instance Attributes
 
@@ -203,6 +203,7 @@ class Rectangle(Base):
 
         Args:
             args (int): a variable length of integer arguments
+            kwargs (collection): a collection of key/value data
             1st argument should be the id attribute
             2nd argument should be the width attribute
             3rd argument should be the height attribute
@@ -216,19 +217,36 @@ class Rectangle(Base):
                 match i:
                     case 0:
                         if arg is None:
-                            self.__init__(self.__width, self.__height,
-                                          self.__x, self.__y)
+                            self.__init__(self.width, self.height,
+                                          self.x, self.y)
                         else:
-                            self.__id = arg
+                            self.id = arg
                     case 1:
-                        self.__width = arg
+                        self.width = arg
                     case 2:
-                        self.__height = arg
+                        self.height = arg
                     case 3:
-                        self.__x = arg
+                        self.x = arg
                     case 4:
-                        self.__y = arg
+                        self.y = arg
                 i += 1
+        else:
+            for key, vals in kwargs.items():
+                match key:
+                    case "id":
+                        if vals is None:
+                            self.__init__(self.width, self.height,
+                                          self.x, self.y)
+                        else:
+                            self.id = vals
+                    case "width":
+                        self.width = vals
+                    case "height":
+                        self.height = vals
+                    case "x":
+                        self.x = vals
+                    case "y":
+                        self.y = vals
 
     def display(self):
         """
