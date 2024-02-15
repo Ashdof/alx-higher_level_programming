@@ -90,16 +90,6 @@ class Square(Rectangle):
                     case "y":
                         self.y = vals
 
-    def to_dictionary(self):
-        """Return a dictionary representation of a square instance"""
-
-        return {
-                "id": self.id,
-                "size": self.size,
-                "x": self.x,
-                "y": self.y
-                }
-
     def __str__(self):
         """Return a string representation of this square instance"""
 
