@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 <<<<<<< HEAD
+<<<<<<< HEAD
 """A module with a class that models a rectangle"""
 =======
 """A module that contains a Rectangle class"""
 >>>>>>> 10e63ca (Improved documentation of modules)
+=======
+"""Rectangle module"""
+>>>>>>> 4394e1f (Revert "Improved documentation of modules")
 
 from models.base import Base
 
