@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+semistandard $1
+chmod 755 $1
+./$1
