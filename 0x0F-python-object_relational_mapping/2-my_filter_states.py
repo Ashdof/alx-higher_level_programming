@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""" List all states from the database hbtn_0e_0_usa with the name
-starting with the letter N
+""" List all states from the database hbtn_0e_0_usa with the
+searched name
 
 Usuage:
-./0-select_states.py <mysql username> <mysql password> \
+./2-my_filter_states.py <mysql username> <mysql password> \
                      <database name> <state name searched>
 """
 

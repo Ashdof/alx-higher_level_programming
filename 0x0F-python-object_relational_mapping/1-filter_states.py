@@ -3,7 +3,7 @@
 starting with the letter N
 
 Usuage:
-./0-select_states.py <mysql username> <mysql password> <database name>
+./1-filter_states.py <mysql username> <mysql password> <database name>
 """
 
 import sys
