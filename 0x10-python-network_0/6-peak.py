@@ -16,24 +16,22 @@ def find_peak(list_of_integers):
     Returns:
     The peak value(2) or None if no peak is found
     """
+    if list_of_integers == []:
+        return None
 
-    vals = list_of_integers[:]
-    size = len(vals)
+    size = len(list_of_integers)
 
     if size == 1:
-        return vals[0]
-    else:
-        if vals == [] or vals == "None":
-            return "None"
-        else:
-            return max(vals)
+        return list_of_integers[0]
+    elif size == 2:
+        return max(list_of_integers)
 
     mid = int(size / 2)
-    peak = vals[mid]
+    peak = list_of_integers[mid]
 
-    if peak > vals[mid - 1] and peak > vals[mid + 1]:
+    if peak > list_of_integers[mid - 1] and peak > list_of_integers[mid + 1]:
         return peak
-    elif peak < vals[mid - 1]:
-        return find_peak(vals[:mid])
+    elif peak < list_of_integers[mid - 1]:
+        return find_peak(list_of_integers[:mid])
     else:
-        return find_peak(vals[mid + 1:])
+        return find_peak(list_of_integers[mid + 1:])
