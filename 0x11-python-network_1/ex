@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+pycodestyle "$1"
+chmod u+x "$1"
