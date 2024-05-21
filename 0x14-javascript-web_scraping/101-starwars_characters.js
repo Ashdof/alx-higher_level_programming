@@ -1,30 +1,28 @@
 #!/usr/bin/node
-const request = require('request');
-const url = 'http://swapi.co/api/films/';
-let id = parseInt(process.argv[2], 10);
-let characters = [];
+const axios = require('axios');
 
-request(url, function (err, response, body) {
-  if (err == null) {
-    const resp = JSON.parse(body);
-    const results = resp.results;
-    if (id < 4) {
-      id += 3;
-    } else {
-      id -= 3;
-    }
-    for (let i = 0; i < results.length; i++) {
-      if (results[i].episode_id === id) {
-        characters = results[i].characters;
-        break;
-      }
-    }
-    for (let j = 0; j < characters.length; j++) {
-      request(characters[j], function (err, response, body) {
-        if (err == null) {
-          console.log(JSON.parse(body).name);
-        }
-      });
-    }
+// Function to fetch and print characters of a Star Wars movie
+async function getMovieCharacters (movieId) {
+  // Fetch the movie data using the movie ID
+  const response = await axios.get(`https://swapi.dev/api/films/${movieId}/`);
+  const movieData = response.data;
+
+  // Get the list of character URLs
+  const characterUrls = movieData.characters;
+
+  // Fetch and print each character's name
+  for (const url of characterUrls) {
+    const characterResponse = await axios.get(url);
+    console.log(characterResponse.data.name);
   }
-});
+}
+
+// Get the movie ID from command line arguments
+const movieId = process.argv[2];
+
+if (!movieId) {
+  console.log('Usage: node script.js <movie_id>');
+  process.exit(1);
+}
+
+getMovieCharacters(movieId);
