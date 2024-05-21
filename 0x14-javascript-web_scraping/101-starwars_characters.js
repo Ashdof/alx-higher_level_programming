@@ -1,20 +1,35 @@
 #!/usr/bin/node
-const axios = require('axios');
+const request = require('request');
 
 // Function to fetch and print characters of a Star Wars movie
-async function getMovieCharacters (movieId) {
-  // Fetch the movie data using the movie ID
-  const response = await axios.get(`https://swapi.dev/api/films/${movieId}/`);
-  const movieData = response.data;
+function getMovieCharacters (movieId) {
+  const url = `https://swapi.dev/api/films/${movieId}/`;
 
-  // Get the list of character URLs
-  const characterUrls = movieData.characters;
+  request(url, { json: true }, (err, res, body) => {
+    if (err) {
+      return console.error(`Error: Unable to fetch data for movie ID ${movieId}`, err.message);
+    }
 
-  // Fetch and print each character's name
-  for (const url of characterUrls) {
-    const characterResponse = await axios.get(url);
-    console.log(characterResponse.data.name);
-  }
+    if (res.statusCode !== 200) {
+      return console.error(`Error: Received status code ${res.statusCode}`);
+    }
+
+    const characterUrls = body.characters;
+
+    characterUrls.forEach(characterUrl => {
+      request(characterUrl, { json: true }, (err, res, body) => {
+        if (err) {
+          return console.error(`Error fetching character data from ${characterUrl}`, err.message);
+        }
+
+        if (res.statusCode !== 200) {
+          return console.error(`Error: Received status code ${res.statusCode} for ${characterUrl}`);
+        }
+
+        console.log(body.name);
+      });
+    });
+  });
 }
 
 // Get the movie ID from command line arguments
